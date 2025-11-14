@@ -5,7 +5,8 @@ const teamSections: {
 }[] = [
   {
     title: "Computer Science Team",
-    members: [
+    members: [ 
+      ["Sai", "pfp.png", "#"],
       ["Moiz", "moiz.png", "https://www.linkedin.com/in/moiz-ahmed-hashmi-a36670213/"],
       ["Arjun", "pfp.png", "#"],
       ["Eddie", "eddie.jpeg", "https://www.linkedin.com/in/eddiebian/"],
