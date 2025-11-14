@@ -12,7 +12,6 @@ export default function Home() {
           className="min-h-[calc(100vh-1rem)] md:min-h-[calc(100vh-2rem)] rounded-[20px] md:rounded-[40px] p-4 md:p-8 relative overflow-hidden"
           style={{ backgroundColor: "#001002" }}
         >
-          {/* Background Image Layer */}
           <div
             className="absolute inset-0 rounded-[40px] pointer-events-none animate-background-fade-in"
             style={{
@@ -23,7 +22,6 @@ export default function Home() {
             }}
           />
 
-          {/* Background Decoration */}
           <img
             src="/bg_decor.svg"
             alt="Background Decoration"
@@ -31,9 +29,7 @@ export default function Home() {
             draggable={false}
           />
 
-          {/* Content area */}
           <div className="relative z-10">
-            {/* Hero Section */}
             <div className="flex items-start justify-center pt-20 md:pt-30">
               <div className="text-center flex flex-col items-center gap-6 md:gap-13 px-4">
                 <img
@@ -58,174 +54,67 @@ export default function Home() {
                   className="bg-gradient-to-b from-green-400 to-green-700 text-black px-6 py-3 md:px-10 md:py-5 rounded-full font-medium text-base md:text-[20px] shadow-md hover:from-green-500 hover:to-green-800 transition-all duration-300 flex items-center gap-2 w-48 md:w-60 justify-center animate-fade-in-down-delay-3"
                   href="mailto:wosstriolympiad@gmail.com?subject=Sponsorship%20Opportunity%20for%20Triple%20Olympiad"
                 >
-                  Sponsor Event
+                  Sponsors
                 </a>
 
-                {/* Current Sponsors Section */}
+                {/* 
+                ------- SPONSOR SCROLLING SECTION COMMENTED OUT -------
                 <div className="mt-16 md:mt-24">
                   <h2 className="text-white text-xl md:text-2xl font-semibold opacity-70 mb-8">
                     Proudly Sponsored By:
                   </h2>
                   <div className="relative overflow-hidden">
-                    {/* Infinite scrolling container */}
                     <div className="flex animate-infinite-scroll">
-                      {/* First set of logos */}
                       <div className="flex items-center gap-12 md:gap-16 min-w-max px-6">
-                        <img
-                          src="/google.svg"
-                          alt="Google"
-                          className="h-8 md:h-10 w-auto opacity-60"
-                          draggable={false}
-                        />
-                        <img
-                          src="/amazon.svg"
-                          alt="Amazon"
-                          className="h-8 md:h-12 w-auto opacity-60"
-                          draggable={false}
-                        />
-                        <img
-                          src="/meta.svg"
-                          alt="Meta"
-                          className="h-8 md:h-7 w-auto opacity-60"
-                          draggable={false}
-                        />
-                        <img
-                          src="/netflix.svg"
-                          alt="Netflix"
-                          className="h-8 md:h-8 w-auto opacity-60"
-                          draggable={false}
-                        />
-                        <img
-                          src="/spotify.svg"
-                          alt="Spotify"
-                          className="h-8 md:h-11 w-auto opacity-60"
-                          draggable={false}
-                        />
+                        <img src="/google.svg" alt="Google" className="h-8 md:h-10 w-auto opacity-60" draggable={false} />
+                        <img src="/amazon.svg" alt="Amazon" className="h-8 md:h-12 w-auto opacity-60" draggable={false} />
+                        <img src="/meta.svg" alt="Meta" className="h-8 md:h-7 w-auto opacity-60" draggable={false} />
+                        <img src="/netflix.svg" alt="Netflix" className="h-8 md:h-8 w-auto opacity-60" draggable={false} />
+                        <img src="/spotify.svg" alt="Spotify" className="h-8 md:h-11 w-auto opacity-60" draggable={false} />
                       </div>
-                      {/* Second set */}
+
                       <div className="flex items-center gap-12 md:gap-16 min-w-max px-6">
-                        <img
-                          src="/google.svg"
-                          alt="Google"
-                          className="h-8 md:h-10 w-auto opacity-60"
-                          draggable={false}
-                        />
-                        <img
-                          src="/amazon.svg"
-                          alt="Amazon"
-                          className="h-8 md:h-12 w-auto opacity-60"
-                          draggable={false}
-                        />
-                        <img
-                          src="/meta.svg"
-                          alt="Meta"
-                          className="h-8 md:h-7 w-auto opacity-60"
-                          draggable={false}
-                        />
-                        <img
-                          src="/netflix.svg"
-                          alt="Netflix"
-                          className="h-8 md:h-8 w-auto opacity-60"
-                          draggable={false}
-                        />
-                        <img
-                          src="/spotify.svg"
-                          alt="Spotify"
-                          className="h-8 md:h-11 w-auto opacity-60"
-                          draggable={false}
-                        />
+                        <img src="/google.svg" alt="Google" className="h-8 md:h-10 w-auto opacity-60" draggable={false} />
+                        <img src="/amazon.svg" alt="Amazon" className="h-8 md:h-12 w-auto opacity-60" draggable={false} />
+                        <img src="/meta.svg" alt="Meta" className="h-8 md:h-7 w-auto opacity-60" draggable={false} />
+                        <img src="/netflix.svg" alt="Netflix" className="h-8 md:h-8 w-auto opacity-60" draggable={false} />
+                        <img src="/spotify.svg" alt="Spotify" className="h-8 md:h-11 w-auto opacity-60" draggable={false} />
                       </div>
-                      {/* Third set */}
+
                       <div className="flex items-center gap-12 md:gap-16 min-w-max px-6">
-                        <img
-                          src="/google.svg"
-                          alt="Google"
-                          className="h-8 md:h-10 w-auto opacity-60"
-                          draggable={false}
-                        />
-                        <img
-                          src="/amazon.svg"
-                          alt="Amazon"
-                          className="h-8 md:h-12 w-auto opacity-60"
-                          draggable={false}
-                        />
-                        <img
-                          src="/meta.svg"
-                          alt="Meta"
-                          className="h-8 md:h-7 w-auto opacity-60"
-                          draggable={false}
-                        />
-                        <img
-                          src="/netflix.svg"
-                          alt="Netflix"
-                          className="h-8 md:h-8 w-auto opacity-60"
-                          draggable={false}
-                        />
-                        <img
-                          src="/spotify.svg"
-                          alt="Spotify"
-                          className="h-8 md:h-11 w-auto opacity-60"
-                          draggable={false}
-                        />
+                        <img src="/google.svg" alt="Google" className="h-8 md:h-10 w-auto opacity-60" draggable={false} />
+                        <img src="/amazon.svg" alt="Amazon" className="h-8 md:h-12 w-auto opacity-60" draggable={false} />
+                        <img src="/meta.svg" alt="Meta" className="h-8 md:h-7 w-auto opacity-60" draggable={false} />
+                        <img src="/netflix.svg" alt="Netflix" className="h-8 md:h-8 w-auto opacity-60" draggable={false} />
+                        <img src="/spotify.svg" alt="Spotify" className="h-8 md:h-11 w-auto opacity-60" draggable={false} />
                       </div>
-                      {/* Fourth set */}
+
                       <div className="flex items-center gap-12 md:gap-16 min-w-max px-6">
-                        <img
-                          src="/google.svg"
-                          alt="Google"
-                          className="h-8 md:h-10 w-auto opacity-60"
-                          draggable={false}
-                        />
-                        <img
-                          src="/amazon.svg"
-                          alt="Amazon"
-                          className="h-8 md:h-12 w-auto opacity-60"
-                          draggable={false}
-                        />
-                        <img
-                          src="/meta.svg"
-                          alt="Meta"
-                          className="h-8 md:h-7 w-auto opacity-60"
-                          draggable={false}
-                        />
-                        <img
-                          src="/netflix.svg"
-                          alt="Netflix"
-                          className="h-8 md:h-8 w-auto opacity-60"
-                          draggable={false}
-                        />
-                        <img
-                          src="/spotify.svg"
-                          alt="Spotify"
-                          className="h-8 md:h-11 w-auto opacity-60"
-                          draggable={false}
-                        />
+                        <img src="/google.svg" alt="Google" className="h-8 md:h-10 w-auto opacity-60" draggable={false} />
+                        <img src="/amazon.svg" alt="Amazon" className="h-8 md:h-12 w-auto opacity-60" draggable={false} />
+                        <img src="/meta.svg" alt="Meta" className="h-8 md:h-7 w-auto opacity-60" draggable={false} />
+                        <img src="/netflix.svg" alt="Netflix" className="h-8 md:h-8 w-auto opacity-60" draggable={false} />
+                        <img src="/spotify.svg" alt="Spotify" className="h-8 md:h-11 w-auto opacity-60" draggable={false} />
                       </div>
                     </div>
 
-                    {/* Fade gradients */}
                     <div
                       className="absolute left-0 top-0 bottom-0 w-16 md:w-24 pointer-events-none z-10"
-                      style={{
-                        background:
-                          "linear-gradient(to right, #001002, transparent)",
-                      }}
+                      style={{ background: "linear-gradient(to right, #001002, transparent)" }}
                     />
                     <div
                       className="absolute right-0 top-0 bottom-0 w-16 md:w-24 pointer-events-none z-10"
-                      style={{
-                        background:
-                          "linear-gradient(to left, #001002, transparent)",
-                      }}
+                      style={{ background: "linear-gradient(to left, #001002, transparent)" }}
                     />
                   </div>
                 </div>
+                -------------------------------------------------------
+                */}
+
               </div>
             </div>
 
-            {/* Feature Sections - Outside hero container for consistent width */}
             <div className="px-8 md:px-16 lg:px-24 relative overflow-hidden">
-              {/* Side Glow - Top Right */}
               <img
                 src="/side_glow.png"
                 alt="Side Glow"
@@ -233,21 +122,18 @@ export default function Home() {
                 draggable={false}
               />
 
-              {/* Background Decoration for Feature Sections */}
               <img
                 src="/bg_decor.svg"
                 alt="Background Decoration"
                 className="absolute bottom-4 left-2 md:bottom-8 md:left-4 w-100 md:w-200 h-auto pointer-events-none opacity-50 transform rotate-180"
                 draggable={false}
               />
-              {/* Feature Section 1 */}
+
               <div
                 id="about"
                 className="mt-24 md:mt-32 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center max-w-6xl mx-auto"
               >
-                {/* Left side - Icon, heading, subheading */}
                 <div className="space-y-6 text-left">
-                  {/* Icon box */}
                   <div className="w-16 h-16 bg-green-600 rounded-xl flex items-center justify-center">
                     <svg
                       className="w-8 h-8 text-white"
@@ -264,12 +150,10 @@ export default function Home() {
                     </svg>
                   </div>
 
-                  {/* Heading */}
                   <h3 className="text-2xl md:text-3xl font-bold text-white text-left">
                     About the Triple Olympiad
                   </h3>
 
-                  {/* Subheading */}
                   <p className="text-base md:text-lg text-white opacity-70 max-w-md text-left">
                     From December 15-17, 2025, join WOSS' Triple Olympiad
                     featuring competitions in mathematics, computer science, and
@@ -279,7 +163,6 @@ export default function Home() {
                   </p>
                 </div>
 
-                {/* Right side - Large image area */}
                 <div className="bg-green-700 rounded-2xl p-3 md:p-4 aspect-4/3 flex items-center justify-center overflow-hidden">
                   <img
                     src="comphighlight.png"
@@ -290,12 +173,10 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Feature Section 2 - Swapped layout */}
               <div
                 id="schedule"
                 className="mt-24 md:mt-32 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center max-w-6xl mx-auto"
               >
-                {/* Left side - Large image area */}
                 <div className="bg-green-700 rounded-2xl p-3 md:p-4 aspect-4/3 flex items-center justify-center order-2 lg:order-1 overflow-hidden">
                   <img
                     src="/randomcaf.png"
@@ -305,9 +186,7 @@ export default function Home() {
                   />
                 </div>
 
-                {/* Right side - Icon, heading, subheading */}
                 <div className="space-y-6 text-left order-1 lg:order-2">
-                  {/* Icon box */}
                   <div className="w-16 h-16 bg-green-600 rounded-xl flex items-center justify-center">
                     <svg
                       className="w-8 h-8 text-white"
@@ -324,12 +203,10 @@ export default function Home() {
                     </svg>
                   </div>
 
-                  {/* Heading */}
                   <h3 className="text-2xl md:text-3xl font-bold text-white text-left">
                     Competition Day Schedule
                   </h3>
 
-                  {/* Subheading */}
                   <div className="text-base md:text-lg text-white opacity-70 max-w-md text-left space-y-4">
                     <ul className="list-disc list-inside space-y-2">
                       <li>Day 1: Physics (December 15)</li>
@@ -340,14 +217,11 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Feature Section 3 - Back to original layout */}
               <div
                 id="venue"
                 className="mt-24 md:mt-32 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center max-w-6xl mx-auto"
               >
-                {/* Left side - Icon, heading, subheading */}
                 <div className="space-y-6 text-left">
-                  {/* Icon box */}
                   <div className="w-16 h-16 bg-green-600 rounded-xl flex items-center justify-center">
                     <svg
                       className="w-8 h-8 text-white"
@@ -364,12 +238,10 @@ export default function Home() {
                     </svg>
                   </div>
 
-                  {/* Heading */}
                   <h3 className="text-2xl md:text-3xl font-bold text-white text-left">
                     Venue & Registration Details
                   </h3>
 
-                  {/* Subheading */}
                   <div className="text-base md:text-lg text-white opacity-70 max-w-md text-left space-y-4">
                     <p>
                       Hosted at White Oaks Secondary School (South Campus), 1330
@@ -379,7 +251,6 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Right side - Large image area */}
                 <div className="bg-green-700 rounded-2xl p-0 aspect-4/3 flex items-center justify-center overflow-hidden">
                   <iframe
                     title="1330 Montclair Dr Oakville location"
@@ -393,16 +264,11 @@ export default function Home() {
               </div>
             </div>
 
-            {/* FAQ Section */}
             <div id="faq">
               <FAQ />
             </div>
 
-            {/* Team Section */}
-            <div
-              id="team"
-              className="mt-24 md:mt-32 mb-24 md:mb-64 text-center"
-            >
+            <div id="team" className="mt-24 md:mt-32 mb-24 md:mb-64 text-center">
               <img
                 src="/team.png"
                 alt="Team"
@@ -416,10 +282,8 @@ export default function Home() {
               <TeamGrid />
             </div>
 
-            {/* Footer - Inside main container */}
             <Footer />
 
-            {/* Bottom spacing with glow */}
             <div className="mt-24 md:mt-32 relative">
               <img
                 src="/bottom_glow.png"
