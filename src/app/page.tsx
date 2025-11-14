@@ -54,7 +54,7 @@ export default function Home() {
                   className="bg-gradient-to-b from-green-400 to-green-700 text-black px-6 py-3 md:px-10 md:py-5 rounded-full font-medium text-base md:text-[20px] shadow-md hover:from-green-500 hover:to-green-800 transition-all duration-300 flex items-center gap-2 w-48 md:w-60 justify-center animate-fade-in-down-delay-3"
                   href="mailto:wosstriolympiad@gmail.com?subject=Sponsorship%20Opportunity%20for%20Triple%20Olympiad"
                 >
-                  Sponsors
+                  Sponsor Us!
                 </a>
 
                 {/* 
