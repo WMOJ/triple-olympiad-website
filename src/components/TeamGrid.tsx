@@ -12,7 +12,7 @@ const teamSections: {
       ["Eddie", "eddie.jpeg", "https://www.linkedin.com/in/eddiebian/"],
       ["Darren", "darren.jpeg", "https://www.linkedin.com/in/wenxuan-su/"],
       ["Caden", "caden.PNG", "#"],
-      ["Adham", "pfp.png", "#"],
+      ["Adham", "adham.png", "https://www.youtube.com/watch?v=dQw4w9WgXcQ"],
       ["Austin", "yeet.jpg", "https://www.linkedin.com/in/austin-xiong-35093731b/"],
       ["Laird", "pfp.png", "#"],
     ],
