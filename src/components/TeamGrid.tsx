@@ -14,6 +14,7 @@ const teamSections: {
       ["Caden", "caden.PNG", "#"],
       ["Adham", "pfp.png", "#"],
       ["Austin", "yeet.jpg", "https://www.linkedin.com/in/austin-xiong-35093731b/"],
+      ["Laird", "pfp.png", "#"],
     ],
   },
   {
