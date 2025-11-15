@@ -28,6 +28,7 @@ const teamSections: {
     title: "Math Team",
     members: [
       ["Shawn", "pfp.png", "#"],
+      ["Raymond", "pfp.png", "#"],
       ["Ervin", "pfp.png", "#"],
       ["Sophie", "pfp.png", "#"]
     ],

@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "WOSS Triple Olympiad",
   description: "Empowering students through comprehensive STEM competitions across Mathematics, Science, and Computer Programming.",
+  icons: {
+    icon: "/logo.webp",
+  },
 };
 
 export default function RootLayout({
