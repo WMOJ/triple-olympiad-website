@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Sitemap: https://triolympiad.ca/sitemap.xml
+# Block sensitive paths
+Disallow: /api/

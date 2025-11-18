@@ -100,7 +100,7 @@ export function MenuBar() {
         </div>
 
         {/* Centered Menu Items - Hidden on mobile */}
-        <nav className="hidden md:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2">
+        <nav aria-label="Main Navigation" className="hidden md:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2">
           <a
             href="#about"
             className="text-white opacity-50 hover:opacity-75 transition-all font-medium"
@@ -139,6 +139,7 @@ export function MenuBar() {
           <a
             href="https://docs.google.com/forms/d/e/1FAIpQLSekrMwHMV2sJHNmuIWCgMm3ndVJ_n0CRSNz753GqwgN2cAtvw/viewform?usp=dialog"
             target="_blank"
+            rel="noopener noreferrer"
             className="hidden md:block bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-medium transition-colors"
           >
             Register
@@ -148,6 +149,7 @@ export function MenuBar() {
           <a
             href="https://docs.google.com/forms/d/e/1FAIpQLSekrMwHMV2sJHNmuIWCgMm3ndVJ_n0CRSNz753GqwgN2cAtvw/viewform?usp=dialog"
             target="_blank"
+            rel="noopener noreferrer"
             className="md:hidden bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-lg font-medium transition-colors text-sm"
           >
             Apply Now

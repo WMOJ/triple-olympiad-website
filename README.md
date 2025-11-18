@@ -34,3 +34,11 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## SEO / Metadata
+
+This site includes improved SEO metadata and structured data. Set the environment variable `NEXT_PUBLIC_SITE_URL` to your site URL (for this project, use `https://triolympiad.ca`) so that the sitemap, Open Graph URLs, and JSON-LD use the correct canonical domain.
+
+There is a dynamic generator available at `/sitemap.xml` and `/robots.txt` which uses `NEXT_PUBLIC_SITE_URL` and includes the three main pages by default. If you do not set the env var the code defaults to `https://triolympiad.ca`.
+
+When deploying, ensure `NEXT_PUBLIC_SITE_URL` is set in your deployment environment.

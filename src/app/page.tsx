@@ -1,9 +1,24 @@
+/* eslint-disable react/no-danger */
 import { MenuBar } from "@/components/MenuBar";
+import { faqData } from "@/lib/faqData";
+import type { Metadata } from "next";
 import { TeamGrid } from "@/components/TeamGrid";
 import { FAQ } from "@/components/FAQ";
 import { Footer } from "@/components/Footer";
 
 export default function Home() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqData.map(([q, a]) => ({
+      "@type": "Question",
+      name: q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: a,
+      },
+    })),
+  };
   return (
     <>
       <MenuBar />
@@ -51,7 +66,7 @@ export default function Home() {
                   draggable={false}
                 />
                 <a
-                  className="bg-gradient-to-b from-green-400 to-green-700 text-black px-6 py-3 md:px-10 md:py-5 rounded-full font-medium text-base md:text-[20px] shadow-md hover:from-green-500 hover:to-green-800 transition-all duration-300 flex items-center gap-2 w-48 md:w-60 justify-center animate-fade-in-down-delay-3"
+                  className="bg-linear-to-b from-green-400 to-green-700 text-black px-6 py-3 md:px-10 md:py-5 rounded-full font-medium text-base md:text-[20px] shadow-md hover:from-green-500 hover:to-green-800 transition-all duration-300 flex items-center gap-2 w-48 md:w-60 justify-center animate-fade-in-down-delay-3"
                   href="mailto:wosstriolympiad@gmail.com?subject=Sponsorship%20Opportunity%20for%20Triple%20Olympiad"
                 >
                   Sponsor Us!
@@ -118,7 +133,7 @@ export default function Home() {
               <img
                 src="/side_glow.png"
                 alt="Side Glow"
-                className="absolute top-4 -right-0 md:top-8 w-64 md:w-80 h-auto pointer-events-none opacity-40 -z-10"
+                className="absolute top-4 right-0 md:top-8 w-64 md:w-80 h-auto pointer-events-none opacity-40 -z-10"
                 draggable={false}
               />
 
@@ -283,6 +298,11 @@ export default function Home() {
             </div>
 
             <Footer />
+                {/* FAQ JSON-LD */}
+                <script
+                  type="application/ld+json"
+                  dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+                />
 
             <div className="mt-24 md:mt-32 relative">
               <img
@@ -298,3 +318,16 @@ export default function Home() {
     </>
   );
 }
+
+export const metadata: Metadata = {
+  title: "Home — WOSS Triple Olympiad",
+  description:
+    "Join the WOSS Triple Olympiad, a three-day STEM competition featuring mathematics, computer science, and physics. Register for Dec 15-17, 2025.",
+  openGraph: {
+    title: "WOSS Triple Olympiad — Home",
+    description:
+      "Three days of STEM challenges across mathematics, computer science, and physics — join WOSS's Triple Olympiad.",
+    url: "/",
+    images: [{ url: "/logo.webp", alt: "WOSS Triple Olympiad" }],
+  },
+};
