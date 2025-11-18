@@ -5,7 +5,7 @@ export function Footer() {
 
   return (
     <footer className="relative mt-16 md:mt-24">
-          <div className="px-8 md:px-16 lg:px-24 py-0 md:py-0">
+      <div className="px-8 md:px-16 lg:px-24 py-0 md:py-0">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
             {/* Logo and Description */}

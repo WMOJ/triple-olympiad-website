@@ -35,7 +35,9 @@ export const metadata: Metadata = {
   // Default to triolympiad.ca for canonical/open graph and structured data when
   // an environment variable is not set. For deploys, set NEXT_PUBLIC_SITE_URL
   // to https://triolympiad.ca.
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://triolympiad.ca"),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://triolympiad.ca"
+  ),
   alternates: {
     canonical: "/",
   },
@@ -87,8 +89,10 @@ export default function RootLayout({
       {
         "@type": "Organization",
         name: "WOSS",
-          url: process.env.NEXT_PUBLIC_SITE_URL || "https://triolympiad.ca",
-          logo: `${process.env.NEXT_PUBLIC_SITE_URL || "https://triolympiad.ca"}/logo.webp`,
+        url: process.env.NEXT_PUBLIC_SITE_URL || "https://triolympiad.ca",
+        logo: `${
+          process.env.NEXT_PUBLIC_SITE_URL || "https://triolympiad.ca"
+        }/logo.webp`,
         sameAs: ["https://www.facebook.com/", "https://www.twitter.com/"],
       },
       {

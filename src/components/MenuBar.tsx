@@ -100,7 +100,10 @@ export function MenuBar() {
         </div>
 
         {/* Centered Menu Items - Hidden on mobile */}
-        <nav aria-label="Main Navigation" className="hidden md:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2">
+        <nav
+          aria-label="Main Navigation"
+          className="hidden md:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2"
+        >
           <a
             href="#about"
             className="text-white opacity-50 hover:opacity-75 transition-all font-medium"

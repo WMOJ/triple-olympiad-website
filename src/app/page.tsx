@@ -125,7 +125,6 @@ export default function Home() {
                 </div>
                 -------------------------------------------------------
                 */}
-
               </div>
             </div>
 
@@ -283,7 +282,10 @@ export default function Home() {
               <FAQ />
             </div>
 
-            <div id="team" className="mt-24 md:mt-32 mb-24 md:mb-64 text-center">
+            <div
+              id="team"
+              className="mt-24 md:mt-32 mb-24 md:mb-64 text-center"
+            >
               <img
                 src="/team.png"
                 alt="Team"
@@ -298,11 +300,11 @@ export default function Home() {
             </div>
 
             <Footer />
-                {/* FAQ JSON-LD */}
-                <script
-                  type="application/ld+json"
-                  dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-                />
+            {/* FAQ JSON-LD */}
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+            />
 
             <div className="mt-24 md:mt-32 relative">
               <img
