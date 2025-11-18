@@ -12,3 +12,24 @@ export const metadata: Metadata = {
     canonical: "/dashboard",
   },
 };
+
+import { MenuBar } from "@/components/MenuBar";
+import { Footer } from "@/components/Footer";
+
+export default function DashboardPage() {
+  return (
+    <>
+      <MenuBar />
+      <main className="min-h-[60vh] flex items-center justify-center p-8">
+        <div className="max-w-3xl w-full text-center">
+          <h1 className="text-3xl font-bold text-white">Dashboard</h1>
+          <p className="text-white/70 mt-4">
+            Dashboard content for registered users will appear here. Please sign
+            in to access personalized info and standings.
+          </p>
+        </div>
+      </main>
+      <Footer />
+    </>
+  );
+}
