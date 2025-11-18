@@ -36,20 +36,22 @@ const MenuDiv = styled.div<{ scrolled: string }>`
   align-items: center;
   justify-content: space-between;
   padding: 0.75rem 1rem;
-  border-radius: 0.75rem;
-  transition: all 0.5s ease-out;
+  border-radius: 1rem;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 
   ${(props) =>
     props.scrolled === "true" &&
     `
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(20px) saturate(200%);
-    -webkit-backdrop-filter: blur(20px) saturate(200%);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(30px) saturate(200%);
+    -webkit-backdrop-filter: blur(30px) saturate(200%);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
   `}
 
   @media (min-width: 768px) {
     padding: 1rem 1.5rem;
+    border-radius: 1.25rem;
   }
 `;
 
@@ -102,31 +104,31 @@ export function MenuBar() {
         <nav className="hidden md:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2">
           <a
             href="#about"
-            className="text-white opacity-50 hover:opacity-75 transition-all font-medium"
+            className="text-white/70 hover:text-white transition-all font-medium hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
           >
             About
           </a>
           <a
             href="#schedule"
-            className="text-white opacity-50 hover:opacity-75 transition-all font-medium"
+            className="text-white/70 hover:text-white transition-all font-medium hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
           >
             Schedule
           </a>
           <a
             href="#venue"
-            className="text-white opacity-50 hover:opacity-75 transition-all font-medium"
+            className="text-white/70 hover:text-white transition-all font-medium hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
           >
             Venue
           </a>
           <a
             href="#faq"
-            className="text-white opacity-50 hover:opacity-75 transition-all font-medium"
+            className="text-white/70 hover:text-white transition-all font-medium hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
           >
             FAQ
           </a>
           <a
             href="#team"
-            className="text-white opacity-50 hover:opacity-75 transition-all font-medium"
+            className="text-white/70 hover:text-white transition-all font-medium hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
           >
             Team
           </a>
@@ -138,7 +140,7 @@ export function MenuBar() {
           <a
             href="https://docs.google.com/forms/d/e/1FAIpQLSekrMwHMV2sJHNmuIWCgMm3ndVJ_n0CRSNz753GqwgN2cAtvw/viewform?usp=dialog"
             target="_blank"
-            className="hidden md:block bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-medium transition-colors"
+            className="hidden md:block bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-emerald-500/50 hover:scale-105"
           >
             Register
           </a>
@@ -147,7 +149,7 @@ export function MenuBar() {
           <a
             href="https://docs.google.com/forms/d/e/1FAIpQLSekrMwHMV2sJHNmuIWCgMm3ndVJ_n0CRSNz753GqwgN2cAtvw/viewform?usp=dialog"
             target="_blank"
-            className="md:hidden bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-lg font-medium transition-colors text-sm"
+            className="md:hidden bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white px-4 py-2 rounded-xl font-semibold transition-all duration-300 text-sm shadow-lg hover:shadow-emerald-500/50"
           >
             Apply Now
           </a>

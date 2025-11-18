@@ -20,7 +20,7 @@ export function Footer() {
                 />
                 <div>
                   <h3 className="text-white font-bold text-lg">WOSS</h3>
-                  <p className="text-green-400 text-sm font-medium">
+                  <p className="gradient-text text-sm font-semibold">
                     Triple Olympiad
                   </p>
                 </div>
@@ -38,31 +38,31 @@ export function Footer() {
               <nav className="space-y-3">
                 <a
                   href="#about"
-                  className="block text-white/70 hover:text-green-400 transition-colors text-sm"
+                  className="block text-white/70 hover:text-emerald-400 transition-colors text-sm hover:drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]"
                 >
                   About
                 </a>
                 <a
                   href="#schedule"
-                  className="block text-white/70 hover:text-green-400 transition-colors text-sm"
+                  className="block text-white/70 hover:text-emerald-400 transition-colors text-sm hover:drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]"
                 >
                   Schedule
                 </a>
                 <a
                   href="#venue"
-                  className="block text-white/70 hover:text-green-400 transition-colors text-sm"
+                  className="block text-white/70 hover:text-emerald-400 transition-colors text-sm hover:drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]"
                 >
                   Venue
                 </a>
                 <a
                   href="#faq"
-                  className="block text-white/70 hover:text-green-400 transition-colors text-sm"
+                  className="block text-white/70 hover:text-emerald-400 transition-colors text-sm hover:drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]"
                 >
                   FAQ
                 </a>
                 <a
                   href="#team"
-                  className="block text-white/70 hover:text-green-400 transition-colors text-sm"
+                  className="block text-white/70 hover:text-emerald-400 transition-colors text-sm hover:drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]"
                 >
                   Team
                 </a>
@@ -83,7 +83,7 @@ export function Footer() {
                 <div className="text-white/70">
                   <a
                     href="mailto:wosstriolympiad@gmail.com"
-                    className="text-white/70 hover:text-green-400 transition-colors"
+                    className="text-white/70 hover:text-emerald-400 transition-colors hover:drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]"
                   >
                     wosstriolympiad@gmail.com
                   </a>

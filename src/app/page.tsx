@@ -19,6 +19,7 @@ export default function Home() {
               backgroundSize: "100% auto",
               backgroundPosition: "top",
               backgroundRepeat: "no-repeat",
+              opacity: 0.7,
             }}
           />
 
@@ -41,8 +42,11 @@ export default function Home() {
                 <img
                   src="/triple_olympiad.png"
                   alt="Triple Olympiad"
-                  className="w-96 md:w-270 h-auto drop-shadow-lg animate-fade-in-down-delay-1"
+                  className="w-96 md:w-270 h-auto animate-fade-in-down-delay-1"
                   draggable={false}
+                  style={{
+                    filter: 'drop-shadow(0 0 40px rgba(16, 185, 129, 0.4))'
+                  }}
                 />
                 <img
                   src="/hero_art.png"
@@ -51,10 +55,13 @@ export default function Home() {
                   draggable={false}
                 />
                 <a
-                  className="bg-gradient-to-b from-green-400 to-green-700 text-black px-6 py-3 md:px-10 md:py-5 rounded-full font-medium text-base md:text-[20px] shadow-md hover:from-green-500 hover:to-green-800 transition-all duration-300 flex items-center gap-2 w-48 md:w-60 justify-center animate-fade-in-down-delay-3"
+                  className="btn-gradient text-white px-6 py-3 md:px-10 md:py-5 rounded-full font-semibold text-base md:text-[20px] flex items-center gap-2 w-48 md:w-60 justify-center animate-fade-in-down-delay-3 glow-green relative group"
                   href="mailto:wosstriolympiad@gmail.com?subject=Sponsorship%20Opportunity%20for%20Triple%20Olympiad"
                 >
-                  Sponsor Us!
+                  <span className="relative z-10">Sponsor Us!</span>
+                  <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
                 </a>
 
                 {/* 
@@ -134,7 +141,7 @@ export default function Home() {
                 className="mt-24 md:mt-32 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center max-w-6xl mx-auto"
               >
                 <div className="space-y-6 text-left">
-                  <div className="w-16 h-16 bg-green-600 rounded-xl flex items-center justify-center">
+                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-green-700 rounded-2xl flex items-center justify-center glow-green shadow-2xl">
                     <svg
                       className="w-8 h-8 text-white"
                       fill="none"
@@ -150,11 +157,11 @@ export default function Home() {
                     </svg>
                   </div>
 
-                  <h3 className="text-2xl md:text-3xl font-bold text-white text-left">
-                    About the Triple Olympiad
+                  <h3 className="text-3xl md:text-4xl font-bold text-white text-left">
+                    About the <span className="gradient-text">Triple Olympiad</span>
                   </h3>
 
-                  <p className="text-base md:text-lg text-white opacity-70 max-w-md text-left">
+                  <p className="text-base md:text-lg text-white/80 max-w-md text-left leading-relaxed">
                     From December 15-17, 2025, join WOSS' Triple Olympiad
                     featuring competitions in mathematics, computer science, and
                     physics. There are solo and team rounds, with with
@@ -163,11 +170,12 @@ export default function Home() {
                   </p>
                 </div>
 
-                <div className="bg-green-700 rounded-2xl p-3 md:p-4 aspect-4/3 flex items-center justify-center overflow-hidden">
+                <div className="glass rounded-3xl p-2 aspect-4/3 flex items-center justify-center overflow-hidden card-hover group relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-green-700/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <img
                     src="comphighlight.png"
                     alt="Competitors working through Olympiad challenges"
-                    className="w-full h-full object-cover rounded-2xl"
+                    className="w-full h-full object-cover rounded-2xl relative z-10"
                     draggable={false}
                   />
                 </div>
@@ -177,17 +185,18 @@ export default function Home() {
                 id="schedule"
                 className="mt-24 md:mt-32 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center max-w-6xl mx-auto"
               >
-                <div className="bg-green-700 rounded-2xl p-3 md:p-4 aspect-4/3 flex items-center justify-center order-2 lg:order-1 overflow-hidden">
+                <div className="glass rounded-3xl p-2 aspect-4/3 flex items-center justify-center order-2 lg:order-1 overflow-hidden card-hover group relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-green-700/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <img
                     src="/randomcaf.png"
                     alt="Illustration of the Triple Olympiad daily schedule"
-                    className="w-full h-full object-cover rounded-2xl"
+                    className="w-full h-full object-cover rounded-2xl relative z-10"
                     draggable={false}
                   />
                 </div>
 
                 <div className="space-y-6 text-left order-1 lg:order-2">
-                  <div className="w-16 h-16 bg-green-600 rounded-xl flex items-center justify-center">
+                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-green-700 rounded-2xl flex items-center justify-center glow-green shadow-2xl">
                     <svg
                       className="w-8 h-8 text-white"
                       fill="none"
@@ -203,15 +212,24 @@ export default function Home() {
                     </svg>
                   </div>
 
-                  <h3 className="text-2xl md:text-3xl font-bold text-white text-left">
-                    Competition Day Schedule
+                  <h3 className="text-3xl md:text-4xl font-bold text-white text-left">
+                    Competition Day <span className="gradient-text">Schedule</span>
                   </h3>
 
-                  <div className="text-base md:text-lg text-white opacity-70 max-w-md text-left space-y-4">
-                    <ul className="list-disc list-inside space-y-2">
-                      <li>Day 1: Physics (December 15)</li>
-                      <li>Day 2: Math (December 16)</li>
-                      <li>Day 3: Computer Science (December 17)</li>
+                  <div className="text-base md:text-lg text-white/80 max-w-md text-left space-y-4 leading-relaxed">
+                    <ul className="space-y-3">
+                      <li className="flex items-center gap-3">
+                        <div className="w-2 h-2 rounded-full bg-gradient-to-r from-emerald-400 to-green-600"></div>
+                        <span>Day 1: Physics (December 15)</span>
+                      </li>
+                      <li className="flex items-center gap-3">
+                        <div className="w-2 h-2 rounded-full bg-gradient-to-r from-emerald-400 to-green-600"></div>
+                        <span>Day 2: Math (December 16)</span>
+                      </li>
+                      <li className="flex items-center gap-3">
+                        <div className="w-2 h-2 rounded-full bg-gradient-to-r from-emerald-400 to-green-600"></div>
+                        <span>Day 3: Computer Science (December 17)</span>
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -222,7 +240,7 @@ export default function Home() {
                 className="mt-24 md:mt-32 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center max-w-6xl mx-auto"
               >
                 <div className="space-y-6 text-left">
-                  <div className="w-16 h-16 bg-green-600 rounded-xl flex items-center justify-center">
+                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-green-700 rounded-2xl flex items-center justify-center glow-green shadow-2xl">
                     <svg
                       className="w-8 h-8 text-white"
                       fill="none"
@@ -233,16 +251,22 @@ export default function Home() {
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         strokeWidth={2}
-                        d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m0 0a4 4 0 11-6 0M13 7a4 4 0 11-6 0 4 4 0 016 0z"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                       />
                     </svg>
                   </div>
 
-                  <h3 className="text-2xl md:text-3xl font-bold text-white text-left">
-                    Venue & Registration Details
+                  <h3 className="text-3xl md:text-4xl font-bold text-white text-left">
+                    Venue & <span className="gradient-text">Registration</span>
                   </h3>
 
-                  <div className="text-base md:text-lg text-white opacity-70 max-w-md text-left space-y-4">
+                  <div className="text-base md:text-lg text-white/80 max-w-md text-left space-y-4 leading-relaxed">
                     <p>
                       Hosted at White Oaks Secondary School (South Campus), 1330
                       McCraney St. E, Oakville, ON. Free parking is available
@@ -251,11 +275,12 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="bg-green-700 rounded-2xl p-0 aspect-4/3 flex items-center justify-center overflow-hidden">
+                <div className="glass rounded-3xl p-2 aspect-4/3 flex items-center justify-center overflow-hidden card-hover group relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-green-700/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <iframe
                     title="1330 Montclair Dr Oakville location"
                     src="https://maps.google.com/maps?q=1330%20Montclair%20Dr%2C%20Oakville%2C%20ON%20L6H%201Z5&t=&z=16&ie=UTF8&iwloc=&output=embed"
-                    className="w-full h-full border-0"
+                    className="w-full h-full border-0 rounded-2xl relative z-10"
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
@@ -272,11 +297,11 @@ export default function Home() {
               <img
                 src="/team.png"
                 alt="Team"
-                className="opacity-50 mx-auto w-full max-w-xs sm:max-w-sm md:max-w-lg lg:max-w-xl"
+                className="opacity-50 mx-auto w-full max-w-xs sm:max-w-sm md:max-w-lg lg:max-w-xl animate-pulse"
                 draggable={false}
               />
               <p className="mt-6 text-white text-lg md:text-[30px] font-bold opacity-100">
-                Meet the crew behind this event
+                Meet the <span className="gradient-text">crew</span> behind this event
               </p>
 
               <TeamGrid />
