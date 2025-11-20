@@ -30,8 +30,8 @@ const teamSections: {
     members: [
       ["Shawn", "pfp.png", "#"],
       ["Raymond", "pfp.png", "#"],
+      ["Sophie", "sophie.png", "#"]
       ["Ervin", "pfp.png", "#"],
-      ["Sophie", "pfp.png", "#"]
     ],
   },
 ];
