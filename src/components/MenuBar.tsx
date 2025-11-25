@@ -138,8 +138,7 @@ export function MenuBar() {
         <div className="flex items-center">
           {/* Login Button - Hidden on mobile */}
           <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSekrMwHMV2sJHNmuIWCgMm3ndVJ_n0CRSNz753GqwgN2cAtvw/viewform?usp=dialog"
-            target="_blank"
+            href="/register"
             className="hidden md:block bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-emerald-500/50 hover:scale-105"
           >
             Register
@@ -147,8 +146,7 @@ export function MenuBar() {
 
           {/* Mobile Menu Button */}
           <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSekrMwHMV2sJHNmuIWCgMm3ndVJ_n0CRSNz753GqwgN2cAtvw/viewform?usp=dialog"
-            target="_blank"
+            href="/register"
             className="md:hidden bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white px-4 py-2 rounded-xl font-semibold transition-all duration-300 text-sm shadow-lg hover:shadow-emerald-500/50"
           >
             Apply Now
