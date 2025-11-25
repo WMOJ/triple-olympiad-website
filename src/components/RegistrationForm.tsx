@@ -5,6 +5,7 @@ import { useState } from 'react';
 export default function RegistrationForm() {
     const [formData, setFormData] = useState({
         fullName: '',
+        email: '',
         grade: '',
         sections: [] as string[],
         allergies: '',
@@ -52,6 +53,7 @@ export default function RegistrationForm() {
             setStatus('success');
             setFormData({
                 fullName: '',
+                email: '',
                 grade: '',
                 sections: [],
                 allergies: '',
@@ -130,6 +132,23 @@ export default function RegistrationForm() {
                                 />
                             </div>
 
+                            {/* Email */}
+                            <div className="space-y-2">
+                                <label htmlFor="email" className="block text-sm font-medium text-gray-300">
+                                    Email <span className="text-emerald-500">*</span>
+                                </label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    required
+                                    value={formData.email}
+                                    onChange={handleInputChange}
+                                    placeholder="your.email@example.com"
+                                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all text-white placeholder-gray-500"
+                                />
+                            </div>
+
                             {/* Grade */}
                             <div className="space-y-3">
                                 <label className="block text-sm font-medium text-gray-300">
@@ -142,7 +161,7 @@ export default function RegistrationForm() {
                                             className={`
                         flex items-center justify-center px-6 py-2 rounded-full cursor-pointer border transition-all
                         ${formData.grade === option
-                                                    ? 'bg-emerald-500/20 border-emerald-500 text-white shadow-[0_0_15px_rgba(16,185,129,0.3)]'
+                                                    ? 'bg-emerald-500/20 border-emerald-500 text-white shadow-[0_0_15px_rgba(62,192,94,0.3)]'
                                                     : 'bg-white/5 border-white/10 text-gray-400 hover:border-white/30 hover:bg-white/10'
                                                 }
                       `}
@@ -178,13 +197,38 @@ export default function RegistrationForm() {
                                                 }
                       `}
                                         >
-                                            <input
-                                                type="checkbox"
-                                                value={option}
-                                                checked={formData.sections.includes(option)}
-                                                onChange={handleCheckboxChange}
-                                                className="w-4 h-4 rounded border-gray-600 text-emerald-500 focus:ring-emerald-500 bg-transparent mr-3"
-                                            />
+                                            <div className="relative flex items-center">
+                                                <input
+                                                    type="checkbox"
+                                                    value={option}
+                                                    checked={formData.sections.includes(option)}
+                                                    onChange={handleCheckboxChange}
+                                                    className="sr-only"
+                                                />
+                                                <div className={`
+                                                    w-5 h-5 rounded border-2 flex items-center justify-center mr-3 transition-all
+                                                    ${formData.sections.includes(option)
+                                                        ? 'bg-emerald-500 border-emerald-500'
+                                                        : 'border-gray-600 bg-transparent'
+                                                    }
+                                                `}>
+                                                    {formData.sections.includes(option) && (
+                                                        <svg
+                                                            className="w-3 h-3 text-white"
+                                                            fill="none"
+                                                            stroke="currentColor"
+                                                            viewBox="0 0 24 24"
+                                                        >
+                                                            <path
+                                                                strokeLinecap="round"
+                                                                strokeLinejoin="round"
+                                                                strokeWidth={3}
+                                                                d="M5 13l4 4L19 7"
+                                                            />
+                                                        </svg>
+                                                    )}
+                                                </div>
+                                            </div>
                                             {option}
                                         </label>
                                     ))}

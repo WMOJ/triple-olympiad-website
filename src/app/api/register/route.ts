@@ -24,11 +24,11 @@ export async function POST(request: Request) {
             );
         }
 
-        const { fullName, grade, sections, allergies, questions } = body;
+        const { fullName, email, grade, sections, allergies, questions } = body;
 
         // Validate required fields
-        if (!fullName || !grade || !sections || sections.length === 0) {
-            console.error('Missing required fields:', { fullName, grade, sections });
+        if (!fullName || !email || !grade || !sections || sections.length === 0) {
+            console.error('Missing required fields:', { fullName, email, grade, sections });
             return NextResponse.json(
                 { error: 'Missing required fields' },
                 { status: 400 }
@@ -60,13 +60,14 @@ export async function POST(request: Request) {
 
         const response = await sheets.spreadsheets.values.append({
             spreadsheetId: process.env.GOOGLE_SHEET_ID,
-            range: 'Sheet1!A:F', // Assumes Sheet1 exists
+            range: 'Sheet1!A:G', // Updated to include email column
             valueInputOption: 'USER_ENTERED',
             requestBody: {
                 values: [
                     [
                         new Date().toISOString(), // Timestamp
                         fullName,
+                        email,
                         grade,
                         sections.join(', '),
                         allergies || '',
