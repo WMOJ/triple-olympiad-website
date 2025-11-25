@@ -38,31 +38,31 @@ export function Footer() {
               <nav className="space-y-3">
                 <a
                   href="#about"
-                  className="block text-white/70 hover:text-emerald-400 transition-colors text-sm hover:drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]"
+                  className="block text-white/70 hover:text-emerald-400 transition-colors text-sm hover:drop-shadow-[0_0_8px_rgba(62,192,94,0.5)]"
                 >
                   About
                 </a>
                 <a
                   href="#schedule"
-                  className="block text-white/70 hover:text-emerald-400 transition-colors text-sm hover:drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]"
+                  className="block text-white/70 hover:text-emerald-400 transition-colors text-sm hover:drop-shadow-[0_0_8px_rgba(62,192,94,0.5)]"
                 >
                   Schedule
                 </a>
                 <a
                   href="#venue"
-                  className="block text-white/70 hover:text-emerald-400 transition-colors text-sm hover:drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]"
+                  className="block text-white/70 hover:text-emerald-400 transition-colors text-sm hover:drop-shadow-[0_0_8px_rgba(62,192,94,0.5)]"
                 >
                   Venue
                 </a>
                 <a
                   href="#faq"
-                  className="block text-white/70 hover:text-emerald-400 transition-colors text-sm hover:drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]"
+                  className="block text-white/70 hover:text-emerald-400 transition-colors text-sm hover:drop-shadow-[0_0_8px_rgba(62,192,94,0.5)]"
                 >
                   FAQ
                 </a>
                 <a
                   href="#team"
-                  className="block text-white/70 hover:text-emerald-400 transition-colors text-sm hover:drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]"
+                  className="block text-white/70 hover:text-emerald-400 transition-colors text-sm hover:drop-shadow-[0_0_8px_rgba(62,192,94,0.5)]"
                 >
                   Team
                 </a>

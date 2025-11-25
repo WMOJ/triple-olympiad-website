@@ -45,7 +45,7 @@ export default function Home() {
                   className="w-96 md:w-270 h-auto animate-fade-in-down-delay-1"
                   draggable={false}
                   style={{
-                    filter: 'drop-shadow(0 0 40px rgba(16, 185, 129, 0.4))'
+                    filter: 'drop-shadow(0 0 40px rgba(62, 192, 94, 0.4))'
                   }}
                 />
                 <img

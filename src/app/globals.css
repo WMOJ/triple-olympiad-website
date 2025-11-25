@@ -4,10 +4,10 @@
 :root {
   --background: #000000;
   --foreground: #ffffff;
-  --primary: #10b981;
-  --primary-dark: #059669;
-  --accent: #34d399;
-  --glow: rgba(16, 185, 129, 0.5);
+  --primary: #3ec05e;
+  --primary-dark: #2ea048;
+  --accent: #5cd67e;
+  --glow: rgba(62, 192, 94, 0.5);
 }
 
 * {
@@ -112,11 +112,11 @@ body::-webkit-scrollbar {
 
   0%,
   100% {
-    filter: drop-shadow(0 0 20px rgba(16, 185, 129, 0.4));
+    filter: drop-shadow(0 0 20px rgba(62, 192, 94, 0.4));
   }
 
   50% {
-    filter: drop-shadow(0 0 40px rgba(16, 185, 129, 0.8));
+    filter: drop-shadow(0 0 40px rgba(62, 192, 94, 0.8));
   }
 }
 
@@ -270,7 +270,7 @@ body::-webkit-scrollbar {
 /* ===== GRADIENT TEXT ===== */
 
 .gradient-text {
-  background: linear-gradient(135deg, #10b981 0%, #34d399 50%, #6ee7b7 100%);
+  background: linear-gradient(135deg, #3ec05e 0%, #5cd67e 50%, #7ee89a 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -281,20 +281,20 @@ body::-webkit-scrollbar {
 /* ===== CUSTOM GLOW EFFECTS ===== */
 
 .glow-green {
-  box-shadow: 0 0 20px rgba(16, 185, 129, 0.3),
-    0 0 40px rgba(16, 185, 129, 0.2),
-    0 0 60px rgba(16, 185, 129, 0.1);
+  box-shadow: 0 0 20px rgba(62, 192, 94, 0.3),
+    0 0 40px rgba(62, 192, 94, 0.2),
+    0 0 60px rgba(62, 192, 94, 0.1);
 }
 
 .glow-green-strong {
-  box-shadow: 0 0 30px rgba(16, 185, 129, 0.5),
-    0 0 60px rgba(16, 185, 129, 0.3),
-    0 0 90px rgba(16, 185, 129, 0.2);
+  box-shadow: 0 0 30px rgba(62, 192, 94, 0.5),
+    0 0 60px rgba(62, 192, 94, 0.3),
+    0 0 90px rgba(62, 192, 94, 0.2);
 }
 
 .text-glow {
-  text-shadow: 0 0 20px rgba(16, 185, 129, 0.5),
-    0 0 40px rgba(16, 185, 129, 0.3);
+  text-shadow: 0 0 20px rgba(62, 192, 94, 0.5),
+    0 0 40px rgba(62, 192, 94, 0.3);
 }
 
 /* ===== CARD HOVER EFFECTS ===== */
@@ -305,13 +305,13 @@ body::-webkit-scrollbar {
 
 .card-hover:hover {
   transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 60px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 20px 60px rgba(62, 192, 94, 0.3);
 }
 
 /* ===== BUTTON EFFECTS ===== */
 
 .btn-gradient {
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  background: linear-gradient(135deg, #3ec05e 0%, #2ea048 100%);
   background-size: 200% 200%;
   transition: all 0.3s ease;
   position: relative;
@@ -335,7 +335,7 @@ body::-webkit-scrollbar {
 
 .btn-gradient:hover {
   background-position: 100% 100%;
-  box-shadow: 0 10px 40px rgba(16, 185, 129, 0.5);
+  box-shadow: 0 10px 40px rgba(62, 192, 94, 0.5);
   transform: translateY(-2px);
 }
 
@@ -370,7 +370,7 @@ body::-webkit-scrollbar {
 
 .particle {
   position: absolute;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.8) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(62, 192, 94, 0.8) 0%, transparent 70%);
   border-radius: 50%;
   animation: float 6s ease-in-out infinite;
 }
@@ -379,5 +379,5 @@ body::-webkit-scrollbar {
 
 .section-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(16, 185, 129, 0.5) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(62, 192, 94, 0.5) 50%, transparent 100%);
 }

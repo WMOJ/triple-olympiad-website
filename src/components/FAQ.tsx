@@ -66,14 +66,14 @@ export function FAQ() {
               <div
                 className="rounded-2xl transition-all duration-300 relative overflow-hidden"
                 style={{
-                  backgroundColor: isExpanded ? 'rgba(16, 185, 129, 0.05)' : 'transparent'
+                  backgroundColor: isExpanded ? 'rgba(62, 192, 94, 0.05)' : 'transparent'
                 }}
               >
                 {isExpanded && (
                   <div
                     className="absolute top-0 left-0 right-0 h-1/3 rounded-t-2xl pointer-events-none"
                     style={{
-                      background: 'linear-gradient(to bottom, rgba(16, 185, 129, 0.15) 0%, transparent 100%)'
+                      background: 'linear-gradient(to bottom, rgba(62, 192, 94, 0.15) 0%, transparent 100%)'
                     }}
                   />
                 )}
