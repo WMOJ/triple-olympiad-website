@@ -129,7 +129,8 @@ export async function POST(request: Request) {
                                 ],
                                 "Subject": "You’re In! Registration Confirmed for WOSS TriOlympiad 2025",
                                 "HTMLPart": generateConfirmationEmail(fullName),
-                                "TextPart": `Hi ${fullName},\n\nThanks for signing up! We are thrilled to have you join us for the WOSS TriOlympiad.\n\nEvent: WOSS TriOlympiad\nDates: December 15–17, 2025\nLocation: White Oaks Secondary School\n\nSee you there!\n\nWOSS TriOlympiad Team`
+                                "TextPart": `Hi ${fullName},\n\nThanks for signing up! We are thrilled to have you join us for the WOSS TriOlympiad.\n\nEvent: WOSS TriOlympiad\nDates: December 15–17, 2025\nLocation: White Oaks Secondary School\n\nSee you there!\n\nWOSS TriOlympiad Team`,
+                                "CustomID": "registration-confirmation"
                             }
                         ]
                     });
