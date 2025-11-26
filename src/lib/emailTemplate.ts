@@ -22,26 +22,24 @@ export function generateConfirmationEmail(participantName: string) {
     <body style="margin: 0; padding: 0; font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #0f172a; color: #e2e8f0; -webkit-font-smoothing: antialiased;">
         
         <!-- Main Wrapper -->
-        <div style="background-color: #0f172a; padding: 0px 0px 40px 0px; min-height: 100vh;">
+        <div style="background-color: #0f172a; padding: 40px 0; min-height: 100vh;">
             
             <!-- Container -->
-            <div style="max-width: 600px; margin: 0 auto; background-color: #1e293b; border-radius: 0 0 24px 24px; overflow: hidden; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); border: 1px solid #334155; border-top: none;">
+            <div style="max-width: 600px; margin: 0 auto; background-color: #1e293b; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); border: 1px solid #334155;">
                 
-                <!-- Header with Gradient -->
-                <div style="background: linear-gradient(135deg, #059669 0%, #10b981 100%); padding: 30px 20px; text-align: center; position: relative;">
-                    <!-- Decorative Circle (Made smaller and less intrusive) -->
-                    <div style="position: absolute; top: -30px; left: -30px; width: 100px; height: 100px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+                <!-- Header -->
+                <!-- Changed background to dark to make the logo pop and look more premium -->
+                <div style="background-color: #0f172a; background-image: radial-gradient(circle at top center, #1e293b 0%, #0f172a 100%); padding: 40px 20px; text-align: center; position: relative; border-bottom: 1px solid #334155;">
                     
                     <!-- Logo -->
-                    <!-- Note: This image MUST be hosted publicly. Localhost or relative paths will NOT work in emails. -->
-                    <img src="https://www.triolympiad.ca/logo.png" alt="WOSS TriOlympiad Logo" style="width: 60px; height: auto; margin-bottom: 16px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: inline-block;">
+                    <img src="https://www.triolympiad.ca/logo.png" alt="WOSS TriOlympiad Logo" style="width: 80px; height: auto; margin-bottom: 24px; display: inline-block;">
                     
-                    <h1 style="margin: 0; color: #ffffff; font-size: 28px; font-weight: 800; letter-spacing: -0.025em; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">You’re In! 🚀</h1>
-                    <p style="margin: 8px 0 0; color: rgba(255,255,255,0.9); font-size: 16px; font-weight: 500;">Registration Confirmed</p>
+                    <h1 style="margin: 0; color: #ffffff; font-size: 32px; font-weight: 800; letter-spacing: -0.025em; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">You’re In! 🚀</h1>
+                    <p style="margin: 12px 0 0; color: #94a3b8; font-size: 18px; font-weight: 500;">Registration Confirmed</p>
                 </div>
 
                 <!-- Content -->
-                <div style="padding: 32px 40px;">
+                <div style="padding: 40px;">
                     <p style="margin: 0 0 24px; font-size: 18px; color: #f1f5f9; font-weight: 600;">Hi ${participantName},</p>
                     
                     <p style="margin: 0 0 24px; font-size: 16px; line-height: 1.6; color: #cbd5e1;">
@@ -78,7 +76,7 @@ export function generateConfirmationEmail(participantName: string) {
 
                     <!-- CTA Button -->
                     <div style="text-align: center; margin: 32px 0;">
-                        <a href="http://www.triolympiad.ca" style="display: inline-block; background-color: #10b981; color: #ffffff; padding: 16px 32px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 16px; box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.3); transition: background-color 0.2s;">
+                        <a href="https://www.triolympiad.ca" target="_blank" style="display: inline-block; background-color: #10b981; color: #ffffff; padding: 16px 32px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 16px; box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.3); transition: background-color 0.2s;">
                             Visit Website
                         </a>
                     </div>
@@ -98,7 +96,7 @@ export function generateConfirmationEmail(participantName: string) {
                     <p style="margin: 0 0 8px; font-size: 14px; color: #f8fafc; font-weight: 600;">WOSS TriOlympiad Team</p>
                     <p style="margin: 0; font-size: 12px; color: #64748b;">
                         &copy; 2025 WOSS TriOlympiad. All rights reserved.<br>
-                        <a href="http://www.triolympiad.ca" style="color: #64748b; text-decoration: underline;">www.triolympiad.ca</a>
+                        <a href="https://www.triolympiad.ca" style="color: #64748b; text-decoration: underline;">www.triolympiad.ca</a>
                     </p>
                 </div>
             </div>
