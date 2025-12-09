@@ -381,3 +381,8 @@ body::-webkit-scrollbar {
   height: 1px;
   background: linear-gradient(90deg, transparent 0%, rgba(62, 192, 94, 0.5) 50%, transparent 100%);
 }
+
+.hover-glow-white:hover {
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+  transition: all 0.3s ease;
+}

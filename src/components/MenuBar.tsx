@@ -5,34 +5,34 @@ import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
 
-const MenuContainer = styled.div<{ scrolled: string }>`
+const MenuContainer = styled.div<{ $scrolled: string }>`
   position: fixed;
   z-index: 50;
   transition: all 0.5s ease-out;
   animation: fade-in-down-delay-3 1s ease-out;
 
-  top: ${(props) => (props.scrolled === "true" ? "0.5rem" : "1.5rem")};
-  left: ${(props) => (props.scrolled === "true" ? "2rem" : "1rem")};
-  right: ${(props) => (props.scrolled === "true" ? "2rem" : "1rem")};
+  top: ${(props) => (props.$scrolled === "true" ? "0.5rem" : "1.5rem")};
+  left: ${(props) => (props.$scrolled === "true" ? "2rem" : "1rem")};
+  right: ${(props) => (props.$scrolled === "true" ? "2rem" : "1rem")};
 
   @media (min-width: 768px) {
-    top: ${(props) => (props.scrolled === "true" ? "1rem" : "3rem")};
-    left: ${(props) => (props.scrolled === "true" ? "5rem" : "2.5rem")};
-    right: ${(props) => (props.scrolled === "true" ? "5rem" : "2.5rem")};
+    top: ${(props) => (props.$scrolled === "true" ? "1rem" : "3rem")};
+    left: ${(props) => (props.$scrolled === "true" ? "5rem" : "2.5rem")};
+    right: ${(props) => (props.$scrolled === "true" ? "5rem" : "2.5rem")};
   }
 
   @media (min-width: 1024px) {
-    left: ${(props) => (props.scrolled === "true" ? "8rem" : "2.5rem")};
-    right: ${(props) => (props.scrolled === "true" ? "8rem" : "2.5rem")};
+    left: ${(props) => (props.$scrolled === "true" ? "8rem" : "2.5rem")};
+    right: ${(props) => (props.$scrolled === "true" ? "8rem" : "2.5rem")};
   }
 
   @media (min-width: 1280px) {
-    left: ${(props) => (props.scrolled === "true" ? "12rem" : "2.5rem")};
-    right: ${(props) => (props.scrolled === "true" ? "12rem" : "2.5rem")};
+    left: ${(props) => (props.$scrolled === "true" ? "12rem" : "2.5rem")};
+    right: ${(props) => (props.$scrolled === "true" ? "12rem" : "2.5rem")};
   }
 `;
 
-const MenuDiv = styled.div<{ scrolled: string }>`
+const MenuDiv = styled.div<{ $scrolled: string }>`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -41,7 +41,7 @@ const MenuDiv = styled.div<{ scrolled: string }>`
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 
   ${(props) =>
-    props.scrolled === "true" &&
+    props.$scrolled === "true" &&
     `
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(30px) saturate(200%);
@@ -88,8 +88,8 @@ export function MenuBar() {
   }, []);
 
   return (
-    <MenuContainer scrolled={scrolled.toString()}>
-      <MenuDiv scrolled={scrolled.toString()}>
+    <MenuContainer $scrolled={scrolled.toString()}>
+      <MenuDiv $scrolled={scrolled.toString()}>
         {/* Logo */}
         <div className="flex items-center">
           <Link href="/">
@@ -107,31 +107,31 @@ export function MenuBar() {
         <nav className="hidden md:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2">
           <Link
             href="/#about"
-            className="text-white/70 hover:text-white transition-all font-medium hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
+            className="text-white/70 hover:text-white transition-all font-medium hover-glow-white"
           >
             About
           </Link>
           <Link
             href="/#schedule"
-            className="text-white/70 hover:text-white transition-all font-medium hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
+            className="text-white/70 hover:text-white transition-all font-medium hover-glow-white"
           >
             Schedule
           </Link>
           <Link
             href="/#venue"
-            className="text-white/70 hover:text-white transition-all font-medium hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
+            className="text-white/70 hover:text-white transition-all font-medium hover-glow-white"
           >
             Venue
           </Link>
           <Link
             href="/#faq"
-            className="text-white/70 hover:text-white transition-all font-medium hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
+            className="text-white/70 hover:text-white transition-all font-medium hover-glow-white"
           >
             FAQ
           </Link>
           <Link
             href="/#team"
-            className="text-white/70 hover:text-white transition-all font-medium hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
+            className="text-white/70 hover:text-white transition-all font-medium hover-glow-white"
           >
             Team
           </Link>

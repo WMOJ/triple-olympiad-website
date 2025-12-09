@@ -1,5 +1,5 @@
 /* eslint-disable react/no-danger */
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -67,15 +67,19 @@ export const metadata: Metadata = {
     creator: "@WOSS",
     site: "@WOSS",
   },
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#001002" },
-  ],
+
   icons: {
     icon: "/logo.webp",
     apple: "/logo.webp",
   },
   manifest: "/site.webmanifest",
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#001002" },
+  ],
 };
 
 export default function RootLayout({
@@ -90,9 +94,8 @@ export default function RootLayout({
         "@type": "Organization",
         name: "WOSS",
         url: process.env.NEXT_PUBLIC_SITE_URL || "https://triolympiad.ca",
-        logo: `${
-          process.env.NEXT_PUBLIC_SITE_URL || "https://triolympiad.ca"
-        }/logo.webp`,
+        logo: `${process.env.NEXT_PUBLIC_SITE_URL || "https://triolympiad.ca"
+          }/logo.webp`,
         sameAs: ["https://www.facebook.com/", "https://www.twitter.com/"],
       },
       {
