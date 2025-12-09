@@ -7,6 +7,7 @@ export default function RegistrationForm() {
         fullName: '',
         email: '',
         grade: '',
+        otherGrade: '',
         sections: [] as string[],
         allergies: '',
         questions: '',
@@ -36,12 +37,17 @@ export default function RegistrationForm() {
         setErrorMessage('');
 
         try {
+            const payload = {
+                ...formData,
+                grade: formData.grade === 'Other' ? formData.otherGrade : formData.grade
+            };
+
             const response = await fetch('/api/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(formData),
+                body: JSON.stringify(payload),
             });
 
             const data = await response.json();
@@ -55,6 +61,7 @@ export default function RegistrationForm() {
                 fullName: '',
                 email: '',
                 grade: '',
+                otherGrade: '',
                 sections: [],
                 allergies: '',
                 questions: '',
@@ -178,6 +185,20 @@ export default function RegistrationForm() {
                                         </label>
                                     ))}
                                 </div>
+
+                                {formData.grade === 'Other' && (
+                                    <div className="animate-fade-in-down mt-3">
+                                        <input
+                                            type="text"
+                                            name="otherGrade"
+                                            value={formData.otherGrade}
+                                            onChange={handleInputChange}
+                                            placeholder="Please specify your grade"
+                                            required={formData.grade === 'Other'}
+                                            className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all text-white placeholder-gray-500"
+                                        />
+                                    </div>
+                                )}
                             </div>
 
                             {/* Sections */}
