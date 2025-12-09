@@ -136,9 +136,9 @@ export default function Home() {
                 draggable={false}
               />
 
+              <span id="about" className="relative block -top-32 md:-top-48 invisible h-0 w-0"></span>
               <div
-                id="about"
-                className="scroll-mt-32 md:scroll-mt-40 mt-24 md:mt-32 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center max-w-6xl mx-auto"
+                className="mt-24 md:mt-32 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center max-w-6xl mx-auto"
               >
                 <div className="space-y-6 text-left">
                   <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-green-700 rounded-2xl flex items-center justify-center glow-green shadow-2xl">
@@ -181,9 +181,9 @@ export default function Home() {
                 </div>
               </div>
 
+              <span id="schedule" className="relative block -top-32 md:-top-48 invisible h-0 w-0"></span>
               <div
-                id="schedule"
-                className="scroll-mt-32 md:scroll-mt-40 mt-24 md:mt-32 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center max-w-6xl mx-auto"
+                className="mt-24 md:mt-32 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center max-w-6xl mx-auto"
               >
                 <div className="glass rounded-3xl p-2 aspect-4/3 flex items-center justify-center order-2 lg:order-1 overflow-hidden card-hover group relative">
                   <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-green-700/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -235,9 +235,9 @@ export default function Home() {
                 </div>
               </div>
 
+              <span id="venue" className="relative block -top-32 md:-top-48 invisible h-0 w-0"></span>
               <div
-                id="venue"
-                className="scroll-mt-32 md:scroll-mt-40 mt-24 md:mt-32 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center max-w-6xl mx-auto"
+                className="mt-24 md:mt-32 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center max-w-6xl mx-auto"
               >
                 <div className="space-y-6 text-left">
                   <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-green-700 rounded-2xl flex items-center justify-center glow-green shadow-2xl">
@@ -289,11 +289,13 @@ export default function Home() {
               </div>
             </div>
 
-            <div id="faq" className="scroll-mt-32 md:scroll-mt-40">
+            <span id="faq" className="relative block -top-32 md:-top-48 invisible h-0 w-0"></span>
+            <div>
               <FAQ />
             </div>
 
-            <div id="team" className="scroll-mt-32 md:scroll-mt-40 mt-24 md:mt-32 mb-24 md:mb-64 text-center">
+            <span id="team" className="relative block -top-32 md:-top-48 invisible h-0 w-0"></span>
+            <div className="mt-24 md:mt-32 mb-24 md:mb-64 text-center">
               <img
                 src="/team.png"
                 alt="Team"
