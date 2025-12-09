@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import styled from "styled-components";
 
 const MenuContainer = styled.div<{ scrolled: string }>`
@@ -91,66 +92,68 @@ export function MenuBar() {
       <MenuDiv scrolled={scrolled.toString()}>
         {/* Logo */}
         <div className="flex items-center">
-          <Image
-            src="/logo.webp"
-            alt="Logo"
-            width={32}
-            height={32}
-            className="h-8 w-auto md:h-10"
-          />
+          <Link href="/">
+            <Image
+              src="/logo.webp"
+              alt="Logo"
+              width={32}
+              height={32}
+              className="h-8 w-auto md:h-10 cursor-pointer"
+            />
+          </Link>
         </div>
 
         {/* Centered Menu Items - Hidden on mobile */}
         <nav className="hidden md:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2">
-          <a
-            href="#about"
+          <Link
+            href="/#about"
             className="text-white/70 hover:text-white transition-all font-medium hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
           >
             About
-          </a>
-          <a
-            href="#schedule"
+          </Link>
+          <Link
+            href="/#schedule"
             className="text-white/70 hover:text-white transition-all font-medium hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
           >
             Schedule
-          </a>
-          <a
-            href="#venue"
+          </Link>
+          <Link
+            href="/#venue"
             className="text-white/70 hover:text-white transition-all font-medium hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
           >
             Venue
-          </a>
-          <a
-            href="#faq"
+          </Link>
+          <Link
+            href="/#faq"
             className="text-white/70 hover:text-white transition-all font-medium hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
           >
             FAQ
-          </a>
-          <a
-            href="#team"
+          </Link>
+          <Link
+            href="/#team"
             className="text-white/70 hover:text-white transition-all font-medium hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
           >
             Team
-          </a>
+          </Link>
         </nav>
 
         {/* Right side - Login button on desktop, hamburger on mobile */}
         <div className="flex items-center">
           {/* Login Button - Hidden on mobile */}
-          <a
+          <Link
             href="/register"
             className="hidden md:block bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-emerald-500/50 hover:scale-105"
           >
             Register
-          </a>
+          </Link>
 
           {/* Mobile Menu Button */}
-          <a
+          <Link
             href="/register"
             className="md:hidden bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white px-4 py-2 rounded-xl font-semibold transition-all duration-300 text-sm shadow-lg hover:shadow-emerald-500/50"
           >
             Apply Now
-          </a>
+          </Link>
         </div>
       </MenuDiv>
     </MenuContainer>
