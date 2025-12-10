@@ -15,6 +15,7 @@ export default function RegistrationForm() {
 
     const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
     const [errorMessage, setErrorMessage] = useState('');
+    const [isHelpOpen, setIsHelpOpen] = useState(false);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -83,9 +84,26 @@ export default function RegistrationForm() {
                     <h2 className="text-4xl md:text-5xl font-bold mb-4">
                         <span className="gradient-text">Register Now</span>
                     </h2>
-                    <p className="text-gray-400 text-lg">
+                    <p className="text-gray-400 text-lg mb-6">
                         Join the Triolympiad and showcase your skills!
                     </p>
+
+                    <button
+                        onClick={() => setIsHelpOpen(true)}
+                        className="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/10 hover:border-emerald-500/60 transition-all duration-300 group"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="w-5 h-5 group-hover:scale-110 transition-transform"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        Help Me
+                    </button>
                 </div>
 
                 <div className="glass p-8 md:p-12 rounded-3xl border border-white/10 relative overflow-hidden">
@@ -327,6 +345,46 @@ export default function RegistrationForm() {
                     )}
                 </div>
             </div>
+
+            {/* Help Video Modal */}
+            {isHelpOpen && (
+                <div
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 animate-fade-in"
+                    onClick={() => setIsHelpOpen(false)}
+                >
+                    <div
+                        className="relative w-full max-w-4xl bg-[#0a1f10] rounded-2xl border border-white/10 overflow-hidden shadow-2xl animate-scale-in"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <div className="flex items-center justify-between p-4 border-b border-white/10 bg-[#001002]">
+                            <h3 className="text-xl font-bold text-white flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-emerald-400" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+                                </svg>
+                                Registration Tutorial
+                            </h3>
+                            <button
+                                onClick={() => setIsHelpOpen(false)}
+                                className="text-gray-400 hover:text-white transition-colors p-1 hover:bg-white/10 rounded-full"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div className="relative aspect-video bg-black">
+                            <video
+                                src="/Registration%20tutorial.mp4"
+                                controls
+                                className="w-full h-full"
+                                autoPlay
+                            >
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            )}
         </section>
     );
 }
