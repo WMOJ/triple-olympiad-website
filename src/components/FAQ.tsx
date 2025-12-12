@@ -9,7 +9,7 @@ const faqData: [string, string][] = [
   ],
   [
     "Who can participate in the competition?",
-    "The competition is open to high school students from the HDSB."
+    "The competition is open to all high school students from the HDSB."
   ],
   ["Will there be food?",
     "Yes, there will be lots of yummy pizza, snacks, and food for everyone!"],
