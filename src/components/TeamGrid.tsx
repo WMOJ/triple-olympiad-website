@@ -12,7 +12,7 @@ const teamSections: {
         ["Eddie", "eddie.jpeg", "https://www.linkedin.com/in/eddiebian/"],
         ["Darren", "darren.jpeg", "https://www.linkedin.com/in/wenxuan-su/"],
         ["Caden", "caden.PNG", "#"],
-        ["Adham", "adham.png", "https://www.youtube.com/watch?v=dQw4w9WgXcQ"],
+        ["Adham", "pfp.png", "https://wmoj.ca"],
         ["Austin", "yeet.jpg", "https://www.linkedin.com/in/austin-xiong-35093731b/"],
         ["Laird", "pfp.png", "#"],
       ],
@@ -32,7 +32,7 @@ const teamSections: {
         ["Raymond", "pfp.png", "#"],
         ["Sophie", "sophie.png", "#"],
         ["Ervin", "pfp.png", "#"],
-        ],
+      ],
     },
   ];
 
