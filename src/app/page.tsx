@@ -213,7 +213,7 @@ export default function Home() {
                   </div>
 
                   <h3 className="text-3xl md:text-4xl font-bold text-white text-left">
-                    Competition Day <span className="gradient-text">Schedule</span>
+                    Competition Day<span className="gradient-text">Schedule</span>
                   </h3>
 
                   <div className="text-base md:text-lg text-white/80 max-w-md text-left space-y-4 leading-relaxed">
