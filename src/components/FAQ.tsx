@@ -11,6 +11,8 @@ const faqData: [string, string][] = [
     "Who can participate in the competition?",
     "The competition is open to high school students from the HDSB."
   ],
+  ["Will there be food?",
+    "Yes, there will be lots of yummy pizza, snacks, and food for everyone!"],
   [
     "How does the scoring system work?",
     "Each discipline is scored independently, with points awarded based on accuracy, speed, and problem-solving approach."
