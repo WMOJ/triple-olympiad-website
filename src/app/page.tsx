@@ -217,6 +217,9 @@ export default function Home() {
                   </h3>
 
                   <div className="text-base md:text-lg text-white/80 max-w-md text-left space-y-4 leading-relaxed">
+                    <p>
+                      Each competition runs after school from <span className="text-white font-medium">3:00 PM to 5:30 PM</span>.
+                    </p>
                     <ul className="space-y-3">
                       <li className="flex items-center gap-3">
                         <div className="w-2 h-2 rounded-full bg-gradient-to-r from-emerald-400 to-green-600"></div>
