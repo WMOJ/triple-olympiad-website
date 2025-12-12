@@ -9,7 +9,7 @@ const faqData: [string, string][] = [
   ],
   [
     "Who can participate in the competition?",
-    "The competition is open to high school students aged 14-18 from around the world. Participants can compete individually or as part of a team, with separate categories for different skill levels and age groups."
+    "The competition is open to high school students from the HDSB."
   ],
   [
     "How does the scoring system work?",
