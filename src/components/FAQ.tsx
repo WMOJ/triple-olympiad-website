@@ -4,8 +4,8 @@ import { useState } from 'react'
 
 const faqData: [string, string][] = [
   [
-    "What is the WOSS Triple Olympiad?",
-    "The WOSS Triple Olympiad is a three-day Physics, Mathematics, & Computer Science competition."
+    "What is the WOSS Triple Olympiad? When does it run?",
+    "The WOSS Triple Olympiad is a three-day Physics, Mathematics, & Computer Science competition. It runs on December 15, 16, and 17."
   ],
   [
     "Who can participate in the competition?",
