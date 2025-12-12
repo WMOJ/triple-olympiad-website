@@ -5,7 +5,7 @@ import { useState } from 'react'
 const faqData: [string, string][] = [
   [
     "What is the WOSS Triple Olympiad?",
-    "The WOSS Triple Olympiad is a comprehensive academic competition featuring three distinct disciplines: Mathematics, Science, and Computer Programming. It's designed to challenge students across multiple STEM fields and showcase their diverse talents."
+    "The WOSS Triple Olympiad is a three-day Physics, Mathematics, & Computer Science competition."
   ],
   [
     "Who can participate in the competition?",
