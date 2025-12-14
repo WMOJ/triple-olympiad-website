@@ -174,7 +174,7 @@ export default function TimerPage() {
                                         placeholder="00"
                                         value={inputHours}
                                         onChange={(e) => handleInputChange(e, setInputHours)}
-                                        className="w-24 md:w-32 bg-transparent text-center text-5xl md:text-8xl font-bold text-white placeholder-white/10 focus:outline-none focus:placeholder-white/5 transition-all border-b-2 border-white/10 focus:border-[#3ec05e]"
+                                        className="no-spinner w-24 md:w-32 bg-transparent text-center text-5xl md:text-8xl font-bold text-white placeholder-white/10 focus:outline-none focus:placeholder-white/5 transition-all border-b-2 border-white/10 focus:border-[#3ec05e]"
                                     />
                                     <span className="text-sm text-white/40 mt-2 uppercase tracking-widest">Hours</span>
                                 </div>
@@ -188,7 +188,7 @@ export default function TimerPage() {
                                         placeholder="00"
                                         value={inputMinutes}
                                         onChange={(e) => handleInputChange(e, setInputMinutes)}
-                                        className="w-24 md:w-32 bg-transparent text-center text-5xl md:text-8xl font-bold text-white placeholder-white/10 focus:outline-none focus:placeholder-white/5 transition-all border-b-2 border-white/10 focus:border-[#3ec05e]"
+                                        className="no-spinner w-24 md:w-32 bg-transparent text-center text-5xl md:text-8xl font-bold text-white placeholder-white/10 focus:outline-none focus:placeholder-white/5 transition-all border-b-2 border-white/10 focus:border-[#3ec05e]"
                                     />
                                     <span className="text-sm text-white/40 mt-2 uppercase tracking-widest">Mins</span>
                                 </div>
@@ -202,7 +202,7 @@ export default function TimerPage() {
                                         placeholder="00"
                                         value={inputSeconds}
                                         onChange={(e) => handleInputChange(e, setInputSeconds)}
-                                        className="w-24 md:w-32 bg-transparent text-center text-5xl md:text-8xl font-bold text-white placeholder-white/10 focus:outline-none focus:placeholder-white/5 transition-all border-b-2 border-white/10 focus:border-[#3ec05e]"
+                                        className="no-spinner w-24 md:w-32 bg-transparent text-center text-5xl md:text-8xl font-bold text-white placeholder-white/10 focus:outline-none focus:placeholder-white/5 transition-all border-b-2 border-white/10 focus:border-[#3ec05e]"
                                     />
                                     <span className="text-sm text-white/40 mt-2 uppercase tracking-widest">Secs</span>
                                 </div>
