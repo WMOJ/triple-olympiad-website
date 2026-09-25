@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "WOSS Triple Olympiad",
     description:
-      "A multi-day STEM competition with events in mathematics, computer science, and physics — join us Dec 15-17, 2025.",
+      "A multi-day STEM competition with events in mathematics, computer science, and physics — join us Dec 15-17, 2026.",
     url: "/",
     siteName: "WOSS Triple Olympiad",
     images: [
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "WOSS Triple Olympiad",
     description:
-      "Staged STEM competitions for students — register for the Triple Olympiad Dec 15-17, 2025.",
+      "Staged STEM competitions for students — register for the Triple Olympiad Dec 15-17, 2026.",
     images: ["/logo.webp"],
     creator: "@WOSS",
     site: "@WOSS",
@@ -101,8 +101,8 @@ export default function RootLayout({
       {
         "@type": "Event",
         name: "WOSS Triple Olympiad",
-        startDate: "2025-12-15",
-        endDate: "2025-12-17",
+        startDate: "2026-12-15",
+        endDate: "2026-12-17",
         eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
         eventStatus: "https://schema.org/EventScheduled",
         location: {

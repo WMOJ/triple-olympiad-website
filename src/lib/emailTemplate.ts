@@ -43,7 +43,7 @@ export function generateConfirmationEmail(participantName: string) {
                     <p style="margin: 0 0 24px; font-size: 18px; color: #f1f5f9; font-weight: 600;">Hi ${participantName},</p>
                     
                     <p style="margin: 0 0 24px; font-size: 16px; line-height: 1.6; color: #cbd5e1;">
-                        Thanks for signing up! We are absolutely thrilled to have you join us for the <strong>WOSS TriOlympiad 2025</strong>. Get ready for an unforgettable experience of problem-solving and innovation.
+                        Thanks for signing up! We are absolutely thrilled to have you join us for the <strong>WOSS TriOlympiad 2026</strong>. Get ready for an unforgettable experience of problem-solving and innovation.
                     </p>
                     
                     <!-- Details Card -->
@@ -57,7 +57,7 @@ export function generateConfirmationEmail(participantName: string) {
                             </tr>
                             <tr>
                                 <td style="padding: 12px 0; border-bottom: 1px solid #334155; color: #94a3b8; font-size: 14px; vertical-align: top;">Dates</td>
-                                <td style="padding: 12px 0 12px 16px; border-bottom: 1px solid #334155; color: #f8fafc; font-size: 15px; font-weight: 500;">December 15–17, 2025</td>
+                                <td style="padding: 12px 0 12px 16px; border-bottom: 1px solid #334155; color: #f8fafc; font-size: 15px; font-weight: 500;">December 15–17, 2026</td>
                             </tr>
                             <tr>
                                 <td style="padding: 12px 0; border-bottom: 1px solid #334155; color: #94a3b8; font-size: 14px; vertical-align: top;">Location</td>
@@ -95,7 +95,7 @@ export function generateConfirmationEmail(participantName: string) {
                 <div style="background-color: #0f172a; padding: 24px; text-align: center; border-top: 1px solid #334155;">
                     <p style="margin: 0 0 8px; font-size: 14px; color: #f8fafc; font-weight: 600;">WOSS TriOlympiad Team</p>
                     <p style="margin: 0; font-size: 12px; color: #64748b;">
-                        &copy; 2025 WOSS TriOlympiad. All rights reserved.<br>
+                        &copy; 2026 WOSS TriOlympiad. All rights reserved.<br>
                         <a href="https://www.triolympiad.ca" style="color: #64748b; text-decoration: underline;">www.triolympiad.ca</a>
                     </p>
                 </div>
