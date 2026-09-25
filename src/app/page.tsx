@@ -163,7 +163,7 @@ export default function Home() {
                   </h3>
 
                   <p className="text-base md:text-lg text-white/80 max-w-md text-left leading-relaxed">
-                    From December 15-17, 2025, join WOSS' Triple Olympiad
+                    From December 15-17, 2026, join WOSS' Triple Olympiad
                     featuring competitions in mathematics, computer science, and
                     physics. There are solo and team rounds, with with
                     complimentary snacks and food between sessions. Prizes will
