@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { MenuBar } from "@/components/MenuBar";
 import { TeamGrid } from "@/components/TeamGrid";
 import { FAQ } from "@/components/FAQ";
@@ -54,15 +55,15 @@ export default function Home() {
                   className="w-auto h-auto max-w-sm md:max-w-2xl lg:max-w-4xl animate-fade-in-down-delay-2"
                   draggable={false}
                 />
-                <a
+                <Link
                   className="btn-gradient text-white px-6 py-3 md:px-10 md:py-5 rounded-full font-semibold text-base md:text-[20px] flex items-center gap-2 w-48 md:w-60 justify-center animate-fade-in-down-delay-3 glow-green relative group"
-                  href="mailto:wosstriolympiad@gmail.com?subject=Sponsorship%20Opportunity%20for%20Triple%20Olympiad"
+                  href="/sponsor"
                 >
                   <span className="relative z-10">Sponsor Us!</span>
                   <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
-                </a>
+                </Link>
 
                 {/* 
                 ------- SPONSOR SCROLLING SECTION COMMENTED OUT -------

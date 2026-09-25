@@ -135,6 +135,12 @@ export function MenuBar() {
           >
             Team
           </Link>
+          <Link
+            href="/sponsor"
+            className="text-white/70 hover:text-white transition-all font-medium hover-glow-white"
+          >
+            Sponsor
+          </Link>
         </nav>
 
         {/* Right side - Login button on desktop, hamburger on mobile */}
