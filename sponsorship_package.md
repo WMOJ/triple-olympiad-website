@@ -68,3 +68,14 @@ For our sponsors, it is a unique chance to showcase your brand directly to motiv
 - Dedicated Sponsor Booth
 - Logo on Winner Trophy
 - Seat on Judging Panel
+
+## Physical Merchandise & In-Kind Sponsorships
+
+In addition to financial sponsorship, we also warmly accept sponsorships in the form of physical merchandise, competition prizes, hardware, and in-kind goods:
+
+- **Competition Prizes & Tech:** Mechanical keyboards, microcontrollers, electronics kits, headphones, smart devices, or tech accessories for our top performers.
+- **Branded Swag & Goodies:** Company-branded shirts, hoodies, stickers, notebooks, water bottles, and stationery included in welcome bags for all 100+ participants.
+- **Tier-Equivalent Benefits:** In-kind contributions are evaluated at fair market retail value and mapped directly to our sponsorship tiers (Vector, Matrix, Tensor, Singularity) with full promotional perks.
+
+For physical merchandise or in-kind inquiries, please reach out directly to **wosstriolympiad@gmail.com**.
+

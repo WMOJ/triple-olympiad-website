@@ -164,8 +164,8 @@ export default function Home() {
 
                   <p className="text-base md:text-lg text-white/80 max-w-md text-left leading-relaxed">
                     From December 15-17, 2026, join WOSS' Triple Olympiad
-                    featuring competitions in mathematics, computer science, and
-                    physics. There are solo and team rounds, with with
+                    featuring competitions in mathematics, computer science,
+                    physics, and a practical hackathon. There are solo and team rounds, with
                     complimentary snacks and food between sessions. Prizes will
                     be awarded to the top three teams in each category.
                   </p>
@@ -214,7 +214,7 @@ export default function Home() {
                   </div>
 
                   <h3 className="text-3xl md:text-4xl font-bold text-white text-left">
-                    Competition Day<span className="gradient-text">Schedule</span>
+                    Competition Day <span className="gradient-text">Schedule</span>
                   </h3>
 
                   <div className="text-base md:text-lg text-white/80 max-w-md text-left space-y-4 leading-relaxed">
@@ -224,15 +224,15 @@ export default function Home() {
                     <ul className="space-y-3">
                       <li className="flex items-center gap-3">
                         <div className="w-2 h-2 rounded-full bg-gradient-to-r from-emerald-400 to-green-600"></div>
-                        <span>Day 1: Physics (December 15)</span>
+                        <span>Day 1: Math (December 15)</span>
                       </li>
                       <li className="flex items-center gap-3">
                         <div className="w-2 h-2 rounded-full bg-gradient-to-r from-emerald-400 to-green-600"></div>
-                        <span>Day 2: Math (December 16)</span>
+                        <span>Day 2: Computer Science (December 16)</span>
                       </li>
                       <li className="flex items-center gap-3">
                         <div className="w-2 h-2 rounded-full bg-gradient-to-r from-emerald-400 to-green-600"></div>
-                        <span>Day 3: Computer Science (December 17)</span>
+                        <span>Day 3: Physics & Practical Hackathon (December 17)</span>
                       </li>
                     </ul>
                   </div>

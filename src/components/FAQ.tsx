@@ -5,7 +5,7 @@ import { useState } from 'react'
 const faqData: [string, string][] = [
   [
     "What is the WOSS Triple Olympiad? When does it run?",
-    "The WOSS Triple Olympiad is a three-day Physics, Mathematics, & Computer Science competition. It runs on December 15, 16, and 17."
+    "The WOSS Triple Olympiad is a three-day STEM competition featuring Mathematics (Day 1), Computer Science (Day 2), and Physics & a Practical Hackathon (Day 3). It runs from December 15 to 17, 2026 after school."
   ],
   [
     "Who can participate in the competition?",

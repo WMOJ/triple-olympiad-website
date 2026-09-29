@@ -152,6 +152,67 @@ export default function SponsorPage() {
               </div>
             </div>
           </div>
+
+          {/* Physical Merchandise & In-Kind Sponsorships */}
+          <div className="mb-20">
+            <section className="bg-white/5 border border-white/10 p-8 md:p-12 rounded-[32px] backdrop-blur-md shadow-2xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none" />
+              
+              <div className="relative z-10">
+                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-8">
+                  <div>
+                    <span className="text-emerald-400 font-semibold tracking-wider text-sm uppercase">In-Kind Opportunities</span>
+                    <h2 className="text-3xl md:text-4xl font-bold text-white mt-1">Physical Merchandise & In-Kind Sponsorships</h2>
+                  </div>
+                  <a
+                    href="mailto:wosstriolympiad@gmail.com?subject=Physical%20Merchandise%20%2F%20In-Kind%20Sponsorship"
+                    className="btn-gradient text-white px-8 py-4 rounded-full font-semibold text-base inline-flex items-center gap-2 glow-green self-start lg:self-auto hover:scale-105 transition-all shadow-[0_0_20px_rgba(62,192,94,0.3)]"
+                  >
+                    <span>Sponsor with Merchandise</span>
+                    <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                  </a>
+                </div>
+
+                <p className="text-white/80 leading-relaxed text-lg mb-8 max-w-4xl">
+                  In addition to financial sponsorship, we also enthusiastically welcome sponsorships in the form of physical merchandise, competition prizes, hardware, and event goods. In-kind contributions directly enhance the participant experience and put your products straight into the hands of 100+ motivated high school students.
+                </p>
+
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div className="bg-white/5 border border-white/10 p-6 rounded-2xl">
+                    <div className="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-4 text-2xl font-bold">
+                      🏆
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-2">Competition Prizes & Tech</h3>
+                    <p className="text-white/70 text-sm leading-relaxed">
+                      Mechanical keyboards, microcontrollers, electronics kits, headphones, smart devices, or tech peripherals awarded to our winning teams and individual category champions.
+                    </p>
+                  </div>
+
+                  <div className="bg-white/5 border border-white/10 p-6 rounded-2xl">
+                    <div className="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-4 text-2xl font-bold">
+                      🎁
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-2">Company Swag & Goodies</h3>
+                    <p className="text-white/70 text-sm leading-relaxed">
+                      Branded shirts, hoodies, stickers, notebooks, water bottles, and stationery items included in the official participant welcome bags for every attendee.
+                    </p>
+                  </div>
+
+                  <div className="bg-white/5 border border-white/10 p-6 rounded-2xl">
+                    <div className="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-4 text-2xl font-bold">
+                      ✦
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-2">Tier-Equivalent Recognition</h3>
+                    <p className="text-white/70 text-sm leading-relaxed">
+                      Physical contributions are assessed based on their estimated retail fair value and rewarded with corresponding tier benefits (Vector, Matrix, Tensor, Singularity) — including website features, slide credits, and ceremony announcements.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
         </div>
       </main>
       <Footer />

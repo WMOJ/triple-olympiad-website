@@ -6,32 +6,29 @@ const teamSections: {
     {
       title: "Computer Science Team",
       members: [
-        ["Sai", "pfp.png", "#"],
-        ["Moiz", "moiz.png", "https://www.linkedin.com/in/moiz-ahmed-hashmi-a36670213/"],
-        ["Arjun", "pfp.png", "#"],
-        ["Eddie", "eddie.jpeg", "https://www.linkedin.com/in/eddiebian/"],
-        ["Darren", "darren.jpeg", "https://www.linkedin.com/in/wenxuan-su/"],
-        ["Caden", "caden.PNG", "#"],
-        ["Adham", "pfp.png", "https://wmoj.ca"],
-        ["Austin", "yeet.jpg", "https://www.linkedin.com/in/austin-xiong-35093731b/"],
-        ["Laird", "pfp.png", "#"],
+        ["Eric Feng", "pfp.png", "#"],
+        ["Adam Abouaita", "adham.png", "https://wmoj.ca"],
+        ["Darren Su", "darren.jpeg", "https://www.linkedin.com/in/wenxuan-su/"],
+        ["Ayyan Hashmi", "pfp.png", "#"],
+        ["Spencer Wu", "pfp.png", "#"],
+        ["Mithru Naidu", "pfp.png", "#"],
+        ["Aaron Deng", "pfp.png", "#"],
+        ["Keshia Agung", "pfp.png", "#"],
+        ["Olivia Wan", "pfp.png", "#"],
       ],
     },
     {
       title: "Physics Team",
       members: [
-        ["Parth", "pfp.png", "#"],
-        ["John", "pfp.png", "#"],
-        ["Kenny", "pfp.png", "#"]
+        ["Ian", "pfp.png", "#"],
+        ["Chelsea", "pfp.png", "#"],
+        ["Kahan", "pfp.png", "#"],
       ],
     },
     {
       title: "Math Team",
       members: [
-        ["Shawn", "pfp.png", "#"],
-        ["Raymond", "pfp.png", "#"],
-        ["Sophie", "sophie.png", "#"],
-        ["Ervin", "pfp.png", "#"],
+        ["Ian", "pfp.png", "#"],
       ],
     },
   ];
@@ -70,7 +67,7 @@ export function TeamGrid() {
                         )}
                       </div>
                     </div>
-                    <p className="mt-3 text-white text-sm font-semibold group-hover:text-emerald-300 transition-colors">
+                    <p className="mt-3 text-white text-sm font-semibold group-hover:text-emerald-300 transition-colors text-center">
                       {name}
                     </p>
                   </div>
@@ -93,7 +90,7 @@ export function TeamGrid() {
                         )}
                       </div>
                     </div>
-                    <p className="mt-3 text-white text-sm font-semibold">
+                    <p className="mt-3 text-white text-sm font-semibold text-center">
                       {name}
                     </p>
                   </div>
