@@ -7,7 +7,7 @@ const teamSections: {
       title: "Computer Science Team",
       members: [
         ["Darren Su", "darren.jpeg", "https://www.linkedin.com/in/wenxuan-su/"],
-        ["Adam Abouaita", "adham.png", "https://wmoj.ca"],
+        ["Adam Abouaita", "none", "https://wmoj.ca"],
         ["Eric Feng", "none", "#"],
         ["Ayyan Hashmi", "none", "#"],
         ["Spencer Wu", "none", "#"],
