@@ -300,13 +300,7 @@ export default function Home() {
 
             <span id="team" className="relative block -top-32 md:-top-48 invisible h-0 w-0"></span>
             <div className="mt-24 md:mt-32 mb-24 md:mb-64 text-center">
-              <img
-                src="/team.png"
-                alt="Team"
-                className="opacity-50 mx-auto w-full max-w-xs sm:max-w-sm md:max-w-lg lg:max-w-xl animate-pulse"
-                draggable={false}
-              />
-              <p className="mt-6 text-white text-lg md:text-[30px] font-bold opacity-100">
+              <p className="text-white text-lg md:text-[30px] font-bold opacity-100">
                 Meet the <span className="gradient-text">crew</span> behind this event
               </p>
 
