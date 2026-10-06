@@ -1,16 +1,22 @@
 /* eslint-disable react/no-danger */
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Archivo, Martian_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Archivo carries everything from body copy to the expanded display cuts
+// (wdth axis 62-125). Martian Mono is reserved for data: atomic numbers,
+// dates, times and prices.
+const archivo = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
+  axes: ["wdth"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const martianMono = Martian_Mono({
+  variable: "--font-martian",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -44,7 +50,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "WOSS Triple Olympiad",
     description:
-      "A multi-day STEM competition with events in mathematics, computer science, and physics — join us Dec 15-17, 2026.",
+      "A multi-day STEM competition with events in mathematics, computer science, and physics. Join us Dec 15-17, 2026.",
     url: "/",
     siteName: "WOSS Triple Olympiad",
     images: [
@@ -62,7 +68,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "WOSS Triple Olympiad",
     description:
-      "Staged STEM competitions for students — register for the Triple Olympiad Dec 15-17, 2026.",
+      "Staged STEM competitions for students. Register for the Triple Olympiad Dec 15-17, 2026.",
     images: ["/logo.webp"],
     creator: "@WOSS",
     site: "@WOSS",
@@ -77,8 +83,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#001002" },
+    { media: "(prefers-color-scheme: light)", color: "#040605" },
+    { media: "(prefers-color-scheme: dark)", color: "#040605" },
   ],
 };
 
@@ -121,10 +127,11 @@ export default function RootLayout({
     ],
   };
   return (
-    <html lang="en" style={{ scrollBehavior: "smooth" }}>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="en" className={`${archivo.variable} ${martianMono.variable}`}>
+      <body className="antialiased">
+        <a href="#main" className="skip-link">
+          Skip to content
+        </a>
         {children}
         {/* Organization & Event JSON-LD */}
         <script

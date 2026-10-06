@@ -1,14 +1,18 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { DAYS } from '@/lib/olympiad';
+import { Arrow } from "@/components/Arrow";
 
-export default function RegistrationForm() {
+const GRADES = ['9', '10', '11', '12', 'Other'];
+
+export default function RegistrationForm({ initialSections = [] }: { initialSections?: string[] }) {
     const [formData, setFormData] = useState({
         fullName: '',
         email: '',
         grade: '',
         otherGrade: '',
-        sections: [] as string[],
+        sections: initialSections,
         allergies: '',
         questions: '',
     });
@@ -16,6 +20,22 @@ export default function RegistrationForm() {
     const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
     const [errorMessage, setErrorMessage] = useState('');
     const [isHelpOpen, setIsHelpOpen] = useState(false);
+    const closeRef = useRef<HTMLButtonElement>(null);
+    const helpTriggerRef = useRef<HTMLButtonElement>(null);
+
+    useEffect(() => {
+        if (!isHelpOpen) return;
+        closeRef.current?.focus();
+        const onKey = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') setIsHelpOpen(false);
+        };
+        window.addEventListener('keydown', onKey);
+        const trigger = helpTriggerRef.current;
+        return () => {
+            window.removeEventListener('keydown', onKey);
+            trigger?.focus();
+        };
+    }, [isHelpOpen]);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -34,6 +54,13 @@ export default function RegistrationForm() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+
+        if (formData.sections.length === 0) {
+            setStatus('error');
+            setErrorMessage('Pick at least one day (Math, Computer Science or Physics) before submitting.');
+            return;
+        }
+
         setStatus('submitting');
         setErrorMessage('');
 
@@ -67,308 +94,284 @@ export default function RegistrationForm() {
                 allergies: '',
                 questions: '',
             });
-        } catch (error: any) {
+        } catch (error: unknown) {
             setStatus('error');
-            setErrorMessage(error.message);
+            setErrorMessage(error instanceof Error ? error.message : '');
         }
     };
 
+    const labelCls = 'block text-[0.9375rem] font-semibold text-fg';
+    const reqMark = <span className="text-brand-accent" aria-hidden="true"> *</span>;
+
     return (
-        <section className="relative py-24 px-4 overflow-hidden" id="register">
-            {/* Background Elements */}
-            <div className="absolute top-0 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-[100px] -z-10" />
-            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-[100px] -z-10" />
+        <section className="wrap pt-12 md:pt-20" id="register" aria-labelledby="register-title">
+            <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
+                {/* Left: what you are signing up for */}
+                <div className="lg:col-span-5">
+                    <div className="lg:sticky lg:top-28">
+                        <h1 id="register-title" className="display text-[clamp(2.75rem,7vw,5rem)]">
+                            Register
+                        </h1>
+                        <p className="mt-5 text-fg-2 text-lg leading-snug max-w-[34ch]">
+                            Join the Triolympiad and showcase your skills!
+                        </p>
 
-            <div className="max-w-3xl mx-auto">
-                <div className="text-center mb-12">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                        <span className="gradient-text">Register Now</span>
-                    </h2>
-                    <p className="text-gray-400 text-lg mb-6">
-                        Join the Triolympiad and showcase your skills!
-                    </p>
+                        <dl className="mt-8 grid grid-cols-3 gap-[3px] max-w-md">
+                            <div className="cell min-h-[6rem] p-3">
+                                <dt className="cell-num">When</dt>
+                                <dd className="text-[0.875rem] font-medium leading-snug">Dec 15-17, 2026</dd>
+                            </div>
+                            <div className="cell min-h-[6rem] p-3">
+                                <dt className="cell-num">Time</dt>
+                                <dd className="text-[0.875rem] font-medium leading-snug">3:00-5:30 PM</dd>
+                            </div>
+                            <div className="cell min-h-[6rem] p-3">
+                                <dt className="cell-num">Cost</dt>
+                                <dd className="text-[0.875rem] font-medium leading-snug">Free</dd>
+                            </div>
+                        </dl>
 
-                    <button
-                        onClick={() => setIsHelpOpen(true)}
-                        className="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/10 hover:border-emerald-500/60 transition-all duration-300 group"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="w-5 h-5 group-hover:scale-110 transition-transform"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
+                        <button
+                            ref={helpTriggerRef}
+                            type="button"
+                            onClick={() => setIsHelpOpen(true)}
+                            className="btn btn-ghost mt-8"
                         >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        Help Me
-                    </button>
+                            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                                <path d="M5 3.5v9l7.5-4.5z" fill="currentColor" />
+                            </svg>
+                            Help me: watch the tutorial
+                        </button>
+                    </div>
                 </div>
 
-                <div className="glass p-8 md:p-12 rounded-3xl border border-white/10 relative overflow-hidden">
-                    {/* Glow Effect */}
-                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent opacity-50" />
-
-                    {status === 'success' ? (
-                        <div className="text-center py-12 animate-fade-in-up">
-                            <div className="w-20 h-20 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                                <svg
-                                    className="w-10 h-10 text-emerald-400"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
+                {/* Right: the form */}
+                <div className="lg:col-span-7">
+                    <div className="border border-line bg-ink-1 p-5 sm:p-8 md:p-10">
+                        {status === 'success' ? (
+                            <div className="py-6" role="status">
+                                <div className="cell cell--lit h-24 w-24">
+                                    <span className="cell-num">OK</span>
+                                    <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true">
+                                        <path d="M6 18l7.5 7.5L28 9" fill="none" stroke="currentColor" strokeWidth="3.2" />
+                                    </svg>
+                                    <span className="cell-name">Registered</span>
+                                </div>
+                                <h2 className="heading mt-8 text-[2rem]">Registration Successful!</h2>
+                                <p className="mt-3 text-fg-2 text-lg">
+                                    Thank you for registering. We look forward to seeing you there!
+                                </p>
+                                <button
+                                    type="button"
+                                    onClick={() => setStatus('idle')}
+                                    className="btn btn-ghost mt-8"
                                 >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M5 13l4 4L19 7"
+                                    Register Another Student
+                                </button>
+                            </div>
+                        ) : (
+                            <form onSubmit={handleSubmit} className="space-y-9">
+                                {/* Full Name */}
+                                <div className="space-y-2">
+                                    <label htmlFor="fullName" className={labelCls}>
+                                        Full Name{reqMark}
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="fullName"
+                                        name="fullName"
+                                        required
+                                        autoComplete="name"
+                                        value={formData.fullName}
+                                        onChange={handleInputChange}
+                                        placeholder="Your answer"
+                                        className="field"
                                     />
-                                </svg>
-                            </div>
-                            <h3 className="text-2xl font-bold text-white mb-2">Registration Successful!</h3>
-                            <p className="text-gray-400">
-                                Thank you for registering. We look forward to seeing you there!
-                            </p>
-                            <button
-                                onClick={() => setStatus('idle')}
-                                className="mt-8 px-6 py-2 rounded-full border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/10 transition-colors"
-                            >
-                                Register Another Student
-                            </button>
-                        </div>
-                    ) : (
-                        <form onSubmit={handleSubmit} className="space-y-8">
-                            {/* Full Name */}
-                            <div className="space-y-2">
-                                <label htmlFor="fullName" className="block text-sm font-medium text-gray-300">
-                                    Full Name <span className="text-emerald-500">*</span>
-                                </label>
-                                <input
-                                    type="text"
-                                    id="fullName"
-                                    name="fullName"
-                                    required
-                                    value={formData.fullName}
-                                    onChange={handleInputChange}
-                                    placeholder="Your answer"
-                                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all text-white placeholder-gray-500"
-                                />
-                            </div>
-
-                            {/* Email */}
-                            <div className="space-y-2">
-                                <label htmlFor="email" className="block text-sm font-medium text-gray-300">
-                                    Email <span className="text-emerald-500">*</span>
-                                </label>
-                                <input
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    required
-                                    value={formData.email}
-                                    onChange={handleInputChange}
-                                    placeholder="your.email@example.com"
-                                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all text-white placeholder-gray-500"
-                                />
-                            </div>
-
-                            {/* Grade */}
-                            <div className="space-y-3">
-                                <label className="block text-sm font-medium text-gray-300">
-                                    Grade <span className="text-emerald-500">*</span>
-                                </label>
-                                <div className="flex flex-wrap gap-4">
-                                    {['9', '10', '11', '12', 'Other'].map((option) => (
-                                        <label
-                                            key={option}
-                                            className={`
-                        flex items-center justify-center px-6 py-2 rounded-full cursor-pointer border transition-all
-                        ${formData.grade === option
-                                                    ? 'bg-emerald-500/20 border-emerald-500 text-white shadow-[0_0_15px_rgba(62,192,94,0.3)]'
-                                                    : 'bg-white/5 border-white/10 text-gray-400 hover:border-white/30 hover:bg-white/10'
-                                                }
-                      `}
-                                        >
-                                            <input
-                                                type="radio"
-                                                name="grade"
-                                                value={option}
-                                                checked={formData.grade === option}
-                                                onChange={handleInputChange}
-                                                className="hidden"
-                                            />
-                                            {option}
-                                        </label>
-                                    ))}
                                 </div>
 
-                                {formData.grade === 'Other' && (
-                                    <div className="animate-fade-in-down mt-3">
-                                        <input
-                                            type="text"
-                                            name="otherGrade"
-                                            value={formData.otherGrade}
-                                            onChange={handleInputChange}
-                                            placeholder="Please specify your grade"
-                                            required={formData.grade === 'Other'}
-                                            className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all text-white placeholder-gray-500"
-                                        />
-                                    </div>
-                                )}
-                            </div>
+                                {/* Email */}
+                                <div className="space-y-2">
+                                    <label htmlFor="email" className={labelCls}>
+                                        Email{reqMark}
+                                    </label>
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        required
+                                        autoComplete="email"
+                                        value={formData.email}
+                                        onChange={handleInputChange}
+                                        placeholder="your.email@example.com"
+                                        className="field"
+                                    />
+                                </div>
 
-                            {/* Sections */}
-                            <div className="space-y-3">
-                                <label className="block text-sm font-medium text-gray-300">
-                                    Which section(s) do you intend to participate in? <span className="text-emerald-500">*</span>
-                                </label>
-                                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                    {['Physics', 'Math', 'Computer Science'].map((option) => (
-                                        <label
-                                            key={option}
-                                            className={`
-                        flex items-center p-4 rounded-xl cursor-pointer border transition-all
-                        ${formData.sections.includes(option)
-                                                    ? 'bg-emerald-500/10 border-emerald-500/50 text-white'
-                                                    : 'bg-white/5 border-white/10 text-gray-400 hover:border-white/30 hover:bg-white/10'
-                                                }
-                      `}
-                                        >
-                                            <div className="relative flex items-center">
+                                {/* Grade */}
+                                <fieldset>
+                                    <legend className={labelCls}>
+                                        Grade{reqMark}
+                                    </legend>
+                                    <div className="mt-3 grid grid-cols-5 gap-[3px] max-w-md">
+                                        {GRADES.map((option) => (
+                                            <label
+                                                key={option}
+                                                className="choice flex h-12 items-center justify-center text-[0.9375rem] font-semibold"
+                                            >
                                                 <input
-                                                    type="checkbox"
+                                                    type="radio"
+                                                    name="grade"
                                                     value={option}
-                                                    checked={formData.sections.includes(option)}
-                                                    onChange={handleCheckboxChange}
+                                                    required
+                                                    checked={formData.grade === option}
+                                                    onChange={handleInputChange}
                                                     className="sr-only"
                                                 />
-                                                <div className={`
-                                                    w-5 h-5 rounded border-2 flex items-center justify-center mr-3 transition-all
-                                                    ${formData.sections.includes(option)
-                                                        ? 'bg-emerald-500 border-emerald-500'
-                                                        : 'border-gray-600 bg-transparent'
-                                                    }
-                                                `}>
-                                                    {formData.sections.includes(option) && (
-                                                        <svg
-                                                            className="w-3 h-3 text-white"
-                                                            fill="none"
-                                                            stroke="currentColor"
-                                                            viewBox="0 0 24 24"
-                                                        >
-                                                            <path
-                                                                strokeLinecap="round"
-                                                                strokeLinejoin="round"
-                                                                strokeWidth={3}
-                                                                d="M5 13l4 4L19 7"
-                                                            />
-                                                        </svg>
-                                                    )}
-                                                </div>
-                                            </div>
-                                            {option}
-                                        </label>
-                                    ))}
+                                                {option}
+                                            </label>
+                                        ))}
+                                    </div>
+
+                                    {formData.grade === 'Other' && (
+                                        <div className="mt-3">
+                                            <label htmlFor="otherGrade" className="sr-only">Your grade</label>
+                                            <input
+                                                type="text"
+                                                id="otherGrade"
+                                                name="otherGrade"
+                                                value={formData.otherGrade}
+                                                onChange={handleInputChange}
+                                                placeholder="Please specify your grade"
+                                                required={formData.grade === 'Other'}
+                                                className="field"
+                                            />
+                                        </div>
+                                    )}
+                                </fieldset>
+
+                                {/* Sections: the three elements */}
+                                <fieldset>
+                                    <legend className={labelCls}>
+                                        Which section(s) do you intend to participate in?{reqMark}
+                                    </legend>
+                                    <p className="mt-1 text-sm text-fg-3" id="sections-hint">Pick one day or all three.</p>
+                                    <div className="mt-4 grid grid-cols-3 gap-[3px]">
+                                        {DAYS.map((d) => (
+                                            <label key={d.value} className="choice cell h-[7.25rem] sm:h-[8rem] p-3">
+                                                <input
+                                                    type="checkbox"
+                                                    value={d.value}
+                                                    checked={formData.sections.includes(d.value)}
+                                                    onChange={handleCheckboxChange}
+                                                    aria-describedby="sections-hint"
+                                                    className="sr-only"
+                                                />
+                                                <span className="flex items-start justify-between gap-1">
+                                                    <span className="cell-num">{d.n}</span>
+                                                    <span className="cell-num">{d.weekday}</span>
+                                                </span>
+                                                <span className="cell-sym text-[2rem] sm:text-[2.4rem]" aria-hidden="true">{d.symbol}</span>
+                                                <span className="cell-name text-[0.8125rem] sm:text-[0.875rem] !whitespace-normal">
+                                                    {d.value}
+                                                </span>
+                                            </label>
+                                        ))}
+                                    </div>
+                                </fieldset>
+
+                                {/* Allergies */}
+                                <div className="space-y-2">
+                                    <label htmlFor="allergies" className={labelCls}>
+                                        Any food allergies? <span className="font-normal text-fg-3">(for snacks)</span>
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="allergies"
+                                        name="allergies"
+                                        value={formData.allergies}
+                                        onChange={handleInputChange}
+                                        placeholder="Your answer"
+                                        className="field"
+                                    />
                                 </div>
-                            </div>
 
-                            {/* Allergies */}
-                            <div className="space-y-2">
-                                <label htmlFor="allergies" className="block text-sm font-medium text-gray-300">
-                                    Any food allergies? (for snacks)
-                                </label>
-                                <input
-                                    type="text"
-                                    id="allergies"
-                                    name="allergies"
-                                    value={formData.allergies}
-                                    onChange={handleInputChange}
-                                    placeholder="Your answer"
-                                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all text-white placeholder-gray-500"
-                                />
-                            </div>
-
-                            {/* Questions */}
-                            <div className="space-y-2">
-                                <label htmlFor="questions" className="block text-sm font-medium text-gray-300">
-                                    Questions or comments
-                                </label>
-                                <textarea
-                                    id="questions"
-                                    name="questions"
-                                    value={formData.questions}
-                                    onChange={handleInputChange}
-                                    placeholder="Your answer"
-                                    rows={3}
-                                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all text-white placeholder-gray-500 resize-none"
-                                />
-                            </div>
-
-                            {/* Error Message */}
-                            {status === 'error' && (
-                                <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl text-red-400 text-sm">
-                                    {errorMessage || 'An error occurred. Please try again.'}
+                                {/* Questions */}
+                                <div className="space-y-2">
+                                    <label htmlFor="questions" className={labelCls}>
+                                        Questions or comments
+                                    </label>
+                                    <textarea
+                                        id="questions"
+                                        name="questions"
+                                        value={formData.questions}
+                                        onChange={handleInputChange}
+                                        placeholder="Your answer"
+                                        rows={3}
+                                        className="field resize-y min-h-[6rem]"
+                                    />
                                 </div>
-                            )}
 
-                            {/* Submit Button */}
-                            <button
-                                type="submit"
-                                disabled={status === 'submitting'}
-                                className="w-full btn-gradient text-white font-bold py-4 rounded-xl shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 group"
-                            >
-                                {status === 'submitting' ? (
-                                    <>
-                                        <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                                        </svg>
-                                        Submitting...
-                                    </>
-                                ) : (
-                                    <>
-                                        Submit Registration
-                                        <svg
-                                            className="w-5 h-5 transform group-hover:translate-x-1 transition-transform"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                        </svg>
-                                    </>
+                                {/* Error Message */}
+                                {status === 'error' && (
+                                    <div role="alert" className="flex gap-3 border border-[#7a2b2b] bg-[#1d0b0b] p-4 text-[0.9375rem] text-[#ffb4b4]">
+                                        <span className="font-semibold">Not sent.</span>
+                                        <span>{errorMessage || 'An error occurred. Please try again.'}</span>
+                                    </div>
                                 )}
-                            </button>
-                        </form>
-                    )}
+
+                                {/* Submit Button */}
+                                <button
+                                    type="submit"
+                                    disabled={status === 'submitting'}
+                                    className="btn btn-primary w-full min-h-14 text-[1.0625rem]"
+                                >
+                                    {status === 'submitting' ? (
+                                        <>
+                                            <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
+                                                <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" strokeOpacity="0.3" strokeWidth="3" />
+                                                <path d="M21 12a9 9 0 0 0-9-9" fill="none" stroke="currentColor" strokeWidth="3" />
+                                            </svg>
+                                            Submitting...
+                                        </>
+                                    ) : (
+                                        <>
+                                            Submit Registration
+                                            <Arrow />
+                                        </>
+                                    )}
+                                </button>
+                            </form>
+                        )}
+                    </div>
                 </div>
             </div>
 
             {/* Help Video Modal */}
             {isHelpOpen && (
                 <div
-                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 animate-fade-in"
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-ground/90 p-4"
                     onClick={() => setIsHelpOpen(false)}
                 >
                     <div
-                        className="relative w-full max-w-4xl bg-[#0a1f10] rounded-2xl border border-white/10 overflow-hidden shadow-2xl animate-scale-in"
+                        role="dialog"
+                        aria-modal="true"
+                        aria-labelledby="help-title"
+                        className="relative w-full max-w-4xl border border-line-2 bg-ink-1 animate-scale-in"
                         onClick={(e) => e.stopPropagation()}
                     >
-                        <div className="flex items-center justify-between p-4 border-b border-white/10 bg-[#001002]">
-                            <h3 className="text-xl font-bold text-white flex items-center gap-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-emerald-400" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
-                                </svg>
+                        <div className="flex items-center justify-between border-b border-line px-4 py-3">
+                            <h2 id="help-title" className="heading text-lg">
                                 Registration Tutorial
-                            </h3>
+                            </h2>
                             <button
+                                ref={closeRef}
+                                type="button"
                                 onClick={() => setIsHelpOpen(false)}
-                                className="text-gray-400 hover:text-white transition-colors p-1 hover:bg-white/10 rounded-full"
+                                aria-label="Close tutorial"
+                                className="inline-flex h-10 w-10 items-center justify-center border border-line-2 text-fg hover:border-brand transition-colors"
                             >
-                                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                                    <path d="M3 3l10 10M13 3L3 13" stroke="currentColor" strokeWidth="1.6" />
                                 </svg>
                             </button>
                         </div>

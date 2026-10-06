@@ -1,167 +1,99 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import styled from "styled-components";
 
-const MenuContainer = styled.div<{ $scrolled: string }>`
-  position: fixed;
-  z-index: 50;
-  transition: all 0.5s ease-out;
-  animation: fade-in-down-delay-3 1s ease-out;
-
-  top: ${(props) => (props.$scrolled === "true" ? "0.5rem" : "1.5rem")};
-  left: ${(props) => (props.$scrolled === "true" ? "2rem" : "1rem")};
-  right: ${(props) => (props.$scrolled === "true" ? "2rem" : "1rem")};
-
-  @media (min-width: 768px) {
-    top: ${(props) => (props.$scrolled === "true" ? "1rem" : "3rem")};
-    left: ${(props) => (props.$scrolled === "true" ? "5rem" : "2.5rem")};
-    right: ${(props) => (props.$scrolled === "true" ? "5rem" : "2.5rem")};
-  }
-
-  @media (min-width: 1024px) {
-    left: ${(props) => (props.$scrolled === "true" ? "8rem" : "2.5rem")};
-    right: ${(props) => (props.$scrolled === "true" ? "8rem" : "2.5rem")};
-  }
-
-  @media (min-width: 1280px) {
-    left: ${(props) => (props.$scrolled === "true" ? "12rem" : "2.5rem")};
-    right: ${(props) => (props.$scrolled === "true" ? "12rem" : "2.5rem")};
-  }
-`;
-
-const MenuDiv = styled.div<{ $scrolled: string }>`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.75rem 1rem;
-  border-radius: 1rem;
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-
-  ${(props) =>
-    props.$scrolled === "true" &&
-    `
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(30px) saturate(200%);
-    -webkit-backdrop-filter: blur(30px) saturate(200%);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  `}
-
-  @media (min-width: 768px) {
-    padding: 1rem 1.5rem;
-    border-radius: 1.25rem;
-  }
-`;
+const LINKS = [
+  { href: "/#about", label: "About" },
+  { href: "/#schedule", label: "Schedule" },
+  { href: "/#venue", label: "Venue" },
+  { href: "/#faq", label: "FAQ" },
+  { href: "/#team", label: "Team" },
+  { href: "/sponsor", label: "Sponsor" },
+];
 
 export function MenuBar() {
-  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    let timeoutId: NodeJS.Timeout;
-    let lastScrollY = 0;
-
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      if (currentScrollY > 0 && lastScrollY === 0) {
-        // Just started scrolling down from top - add delay
-        timeoutId = setTimeout(() => {
-          setScrolled(true);
-        }, 150);
-      } else if (currentScrollY === 0 && lastScrollY > 0) {
-        // Just reached the top - clear timeout and reset immediately
-        clearTimeout(timeoutId);
-        setScrolled(false);
-      }
-
-      lastScrollY = currentScrollY;
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
     };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      clearTimeout(timeoutId);
-    };
-  }, []);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
 
   return (
-    <MenuContainer $scrolled={scrolled.toString()}>
-      <MenuDiv $scrolled={scrolled.toString()}>
-        {/* Logo */}
-        <div className="flex items-center">
-          <Link href="/">
-            <Image
-              src="/logo.webp"
-              alt="Logo"
-              width={32}
-              height={32}
-              className="h-8 w-auto md:h-10 cursor-pointer"
-            />
-          </Link>
-        </div>
+    <header className="sticky top-0 z-40 border-b border-line bg-ground">
+      <div className="wrap flex h-16 items-center justify-between gap-6">
+        <Link href="/" className="flex items-center gap-3 shrink-0" aria-label="WOSS Triple Olympiad, home">
+          <Image src="/logo.webp" alt="" width={32} height={32} className="h-8 w-8" priority />
+          <span className="heading text-[0.95rem] leading-none tracking-[-0.01em] hidden sm:block">
+            <span className="text-fg-3 font-semibold">WOSS</span>{" "}
+            <span>Triple Olympiad</span>
+          </span>
+        </Link>
 
-        {/* Centered Menu Items - Hidden on mobile */}
-        <nav className="hidden md:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2">
-          <Link
-            href="/#about"
-            className="text-white/70 hover:text-white transition-all font-medium hover-glow-white"
-          >
-            About
-          </Link>
-          <Link
-            href="/#schedule"
-            className="text-white/70 hover:text-white transition-all font-medium hover-glow-white"
-          >
-            Schedule
-          </Link>
-          <Link
-            href="/#venue"
-            className="text-white/70 hover:text-white transition-all font-medium hover-glow-white"
-          >
-            Venue
-          </Link>
-          <Link
-            href="/#faq"
-            className="text-white/70 hover:text-white transition-all font-medium hover-glow-white"
-          >
-            FAQ
-          </Link>
-          <Link
-            href="/#team"
-            className="text-white/70 hover:text-white transition-all font-medium hover-glow-white"
-          >
-            Team
-          </Link>
-          <Link
-            href="/sponsor"
-            className="text-white/70 hover:text-white transition-all font-medium hover-glow-white"
-          >
-            Sponsor
-          </Link>
+        <nav aria-label="Main" className="hidden lg:block">
+          <ul className="flex items-center gap-7 text-[0.9375rem]">
+            {LINKS.map((l) => (
+              <li key={l.href}>
+                <Link
+                  href={l.href}
+                  className="text-fg-2 transition-colors hover:text-fg"
+                >
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </nav>
 
-        {/* Right side - Login button on desktop, hamburger on mobile */}
-        <div className="flex items-center">
-          {/* Login Button - Hidden on mobile */}
-          <Link
-            href="/register"
-            className="hidden md:block bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-emerald-500/50 hover:scale-105"
-          >
+        <div className="flex items-center gap-2">
+          <Link href="/register" className="btn btn-primary min-h-10 px-4 py-2 text-[0.9375rem]">
             Register
           </Link>
-
-          {/* Mobile Menu Button */}
-          <Link
-            href="/register"
-            className="md:hidden bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white px-4 py-2 rounded-xl font-semibold transition-all duration-300 text-sm shadow-lg hover:shadow-emerald-500/50"
+          <button
+            type="button"
+            className="lg:hidden inline-flex h-10 w-10 items-center justify-center border border-line-2 text-fg hover:border-brand transition-colors"
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            aria-label={open ? "Close menu" : "Open menu"}
+            onClick={() => setOpen((v) => !v)}
           >
-            Apply Now
-          </Link>
+            <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+              {open ? (
+                <path d="M3.5 3.5l11 11M14.5 3.5l-11 11" stroke="currentColor" strokeWidth="1.6" />
+              ) : (
+                <path d="M2 5h14M2 9h14M2 13h14" stroke="currentColor" strokeWidth="1.6" />
+              )}
+            </svg>
+          </button>
         </div>
-      </MenuDiv>
-    </MenuContainer>
+      </div>
+
+      <nav
+        id="mobile-nav"
+        aria-label="Main"
+        hidden={!open}
+        className="lg:hidden border-t border-line bg-ground"
+      >
+        <ul className="wrap grid grid-cols-2 gap-px py-3">
+          {LINKS.map((l) => (
+            <li key={l.href}>
+              <Link
+                href={l.href}
+                onClick={() => setOpen(false)}
+                className="block border border-line bg-ink-1 px-3 py-3 text-fg hover:border-brand transition-colors"
+              >
+                {l.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </header>
   );
 }

@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-06T23:30:00Z",
+  "title": "Design System: WOSS Triple Olympiad",
+  "extensions": {
+    "colorMeta": {
+      "ground": { "role": "neutral", "displayName": "Chart Black", "canonical": "#040605", "tonalRamp": ["#040605", "#0a0f0c", "#111a14", "#18241c"] },
+      "line": { "role": "neutral", "displayName": "Grid Line", "canonical": "#1c2a21", "tonalRamp": ["#1c2a21", "#2c3e33", "#3b5144"] },
+      "fg": { "role": "neutral", "displayName": "Chalk White", "canonical": "#eaf3ed", "tonalRamp": ["#eaf3ed", "#a9bbaf", "#80958a", "#3a4d41"] },
+      "primary": { "role": "primary", "displayName": "Lit Element Green", "canonical": "#3ec05e", "tonalRamp": ["#0a1a0f", "#0f2e18", "#2ea048", "#3ec05e", "#5cd67e"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Page titles and the closing band. Archivo at wdth 125." },
+      "headline": { "displayName": "Headline", "purpose": "Section headings. Archivo at wdth 118." },
+      "data": { "displayName": "Data", "purpose": "Martian Mono for atomic numbers, dates, times and prices only." },
+      "cell-symbol": { "displayName": "Cell Symbol", "purpose": "Two-letter symbols inside element cells." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "All state transitions and the hero entrance." },
+      { "name": "chart-print", "value": "opacity 0.7s, delay = atomic number x 6ms", "purpose": "Hero ghost cells appear in atomic order (motion allowed only)." },
+      { "name": "day-light", "value": "0.9s from translateY(6px) blur(4px), staggered 120ms after 0.55s", "purpose": "The three competition days arrive last." }
+    ],
+    "breakpoints": [
+      { "name": "p-block-stacked", "value": "0px", "purpose": "Copy above the 6-column p-block." },
+      { "name": "p-block-side", "value": "1024px", "purpose": "Copy beside the p-block." },
+      { "name": "full-table", "value": "1280px", "purpose": "Full 18-column table, title in the chart gap." }
+    ],
+    "focus": { "value": "2px solid #5cd67e, offset 3px", "purpose": "Every interactive element, including hidden inputs via :has()." },
+    "narrative": {
+      "northStar": "The Wall Chart",
+      "rules": [
+        "Days are elements 15, 16, 17 at their real positions.",
+        "Green means lit, selected or actionable.",
+        "Square corners, hairlines, no shadows."
+      ]
+    }
+  }
+}

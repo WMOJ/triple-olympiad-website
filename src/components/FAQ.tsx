@@ -1,6 +1,7 @@
 'use client'
 
-import { useState } from 'react'
+import { useId, useState } from 'react'
+import { CONTACT_EMAIL } from '@/lib/olympiad'
 
 const faqData: [string, string][] = [
   [
@@ -28,91 +29,82 @@ const faqData: [string, string][] = [
 ]
 
 export function FAQ() {
-  const [expandedItems, setExpandedItems] = useState<Set<number>>(new Set())
+  const [expanded, setExpanded] = useState<Set<number>>(new Set([0]))
+  const baseId = useId()
 
   const toggleItem = (index: number) => {
-    const newExpanded = new Set(expandedItems)
-    if (newExpanded.has(index)) {
-      newExpanded.delete(index)
-    } else {
-      newExpanded.add(index)
-    }
-    setExpandedItems(newExpanded)
+    setExpanded((prev) => {
+      const next = new Set(prev)
+      if (next.has(index)) next.delete(index)
+      else next.add(index)
+      return next
+    })
   }
 
   return (
-    <div className="mt-24 md:mt-32 max-w-4xl mx-auto px-4">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-          Frequently Asked <span className="gradient-text">Questions</span>
-        </h2>
-        <p className="text-white/70 text-lg">
-          Everything you need to know about the competition
-        </p>
+    <div className="wrap grid gap-10 lg:grid-cols-12 lg:gap-8">
+      <div className="lg:col-span-4">
+        <div className="lg:sticky lg:top-28">
+          <h2 className="heading text-[clamp(2rem,4.2vw,3rem)]">Questions, answered</h2>
+          <p className="mt-4 text-fg-2 max-w-[32ch]">
+            Anything else? Email{' '}
+            <a className="link" href={`mailto:${CONTACT_EMAIL}`}>
+              {CONTACT_EMAIL}
+            </a>
+            .
+          </p>
+        </div>
       </div>
 
-      <div className="space-y-4">
+      <ul className="lg:col-span-8 border-t border-line">
         {faqData.map(([question, answer], index) => {
-          const isExpanded = expandedItems.has(index)
-
+          const isOpen = expanded.has(index)
+          const panelId = `${baseId}-panel-${index}`
+          const buttonId = `${baseId}-button-${index}`
           return (
-            <div
-              key={index}
-              className={`glass rounded-2xl overflow-hidden transition-all duration-500 card-hover ${isExpanded ? 'glow-green' : ''
-                }`}
-            >
-              <div
-                className="rounded-2xl transition-all duration-300 relative overflow-hidden"
-                style={{
-                  backgroundColor: isExpanded ? 'rgba(62, 192, 94, 0.05)' : 'transparent'
-                }}
-              >
-                {isExpanded && (
-                  <div
-                    className="absolute top-0 left-0 right-0 h-1/3 rounded-t-2xl pointer-events-none"
-                    style={{
-                      background: 'linear-gradient(to bottom, rgba(62, 192, 94, 0.15) 0%, transparent 100%)'
-                    }}
-                  />
-                )}
-
+            <li key={question} className="border-b border-line">
+              <h3>
                 <button
+                  id={buttonId}
+                  type="button"
+                  aria-expanded={isOpen}
+                  aria-controls={panelId}
                   onClick={() => toggleItem(index)}
-                  className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-white/5 transition-all duration-300 relative z-10 group"
+                  className="group flex w-full items-start justify-between gap-6 py-5 md:py-6 text-left"
                 >
-                  <span className="text-white font-semibold text-lg pr-4 group-hover:text-emerald-100 transition-colors">
+                  <span className="text-[1.0625rem] md:text-xl font-semibold leading-snug text-fg transition-colors group-hover:text-brand-accent">
                     {question}
                   </span>
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500/20 to-green-600/20 flex items-center justify-center group-hover:from-emerald-500/30 group-hover:to-green-600/30 transition-all">
-                    <svg
-                      className={`w-5 h-5 text-emerald-400 transition-transform duration-300 ${isExpanded ? 'rotate-45' : ''
-                        }`}
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                      />
+                  <span
+                    aria-hidden="true"
+                    className={`mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center border transition-colors ${
+                      isOpen
+                        ? 'border-brand bg-brand text-on-brand'
+                        : 'border-line-2 text-fg-2 group-hover:border-brand'
+                    }`}
+                  >
+                    <svg className="faq-icon" width="14" height="14" viewBox="0 0 14 14">
+                      <path d="M7 1v12M1 7h12" stroke="currentColor" strokeWidth="1.6" />
                     </svg>
-                  </div>
+                  </span>
                 </button>
-
-                {isExpanded && (
-                  <div className="px-6 pb-6 animate-fade-in-up relative z-10">
-                    <p className="text-white/80 leading-relaxed text-base">
-                      {answer}
-                    </p>
-                  </div>
-                )}
+              </h3>
+              <div
+                id={panelId}
+                role="region"
+                aria-labelledby={buttonId}
+                className="faq-panel"
+                data-open={isOpen}
+                inert={!isOpen}
+              >
+                <div>
+                  <p className="pb-6 pr-14 text-fg-2 leading-relaxed prose-measure">{answer}</p>
+                </div>
               </div>
-            </div>
+            </li>
           )
         })}
-      </div>
+      </ul>
     </div>
   )
 }
