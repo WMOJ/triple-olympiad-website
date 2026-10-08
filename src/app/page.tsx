@@ -62,13 +62,29 @@ export default function Home() {
 
         {/* Schedule */}
         <section id="schedule" aria-labelledby="schedule-title" className="wrap mt-24 md:mt-36">
-          <h2 id="schedule-title" className="heading text-[clamp(2rem,4.2vw,3rem)]">
-            Three days, one after another
-          </h2>
-          <p className="mt-4 text-fg-2 text-lg">
-            Each day the competition runs after school from{" "}
-            <span className="text-fg font-semibold whitespace-nowrap">3:00 PM to 5:30 PM</span>.
-          </p>
+          <div className="grid gap-10 lg:grid-cols-12 lg:gap-8 lg:items-end">
+            <div className="lg:col-span-7">
+              <h2 id="schedule-title" className="heading text-[clamp(2rem,4.2vw,3rem)]">
+                Three days, one after another
+              </h2>
+              <p className="mt-4 text-fg-2 text-lg">
+                Each day the competition runs after school from{" "}
+                <span className="text-fg font-semibold whitespace-nowrap">3:00 PM to 5:30 PM</span>.
+              </p>
+            </div>
+
+            <figure className="border border-line bg-ink-1 p-[3px] max-w-[32rem] lg:col-span-5 lg:max-w-none">
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <Image
+                  src="/randomcaf.png"
+                  alt="Participants competing in the cafeteria on competition day"
+                  fill
+                  sizes="(min-width: 1024px) 34vw, (min-width: 640px) 32rem, 100vw"
+                  className="photo"
+                />
+              </div>
+            </figure>
+          </div>
 
           <ol className="mt-10 border-t border-line">
             {DAYS.map((d) => (
@@ -99,18 +115,6 @@ export default function Home() {
               </li>
             ))}
           </ol>
-
-          <figure className="mt-16 border border-line bg-ink-1 p-[3px]">
-            <div className="relative aspect-[4/3] sm:aspect-[21/9] overflow-hidden">
-              <Image
-                src="/randomcaf.png"
-                alt="Participants competing in the cafeteria on competition day"
-                fill
-                sizes="100vw"
-                className="photo"
-              />
-            </div>
-          </figure>
         </section>
 
         {/* Venue */}
