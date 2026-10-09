@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WOSS Triple Olympiad: Sponsorship Package 2026</title>
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+  /* ==========================================================================
+     WOSS Triple Olympiad, sponsorship package
+     The site's "Wall Chart" system: near-black ground, hairline cells,
+     flat fills, one green. Archivo for words, Martian Mono for data.
+     One idea per page, big type, short lines.
+     ========================================================================== */
+
+  :root {
+    --ground: #040605;
+    --ink-1: #0a0f0c;
+    --ink-2: #111a14;
+    --ink-3: #18241c;
+    --line: #1c2a21;
+    --line-2: #2c3e33;
+    --fg: #eaf3ed;
+    --fg-2: #a9bbaf;
+    --fg-3: #80958a;
+    --fg-faint: #3a4d41;
+    --primary: #3ec05e;
+    --primary-dark: #2ea048;
+    --accent: #5cd67e;
+    --on-primary: #03140a;
+    --wash: #0f2e18;
+    --t2-bg: #0a1a0f;
+    --t2-line: #24452f;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { background: var(--ground); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  body {
+    background: var(--ground);
+    color: var(--fg);
+    font-family: "Archivo", ui-sans-serif, system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  @page { size: 8.5in 11in; margin: 0; }
+
+  .page {
+    position: relative;
+    width: 8.5in;
+    height: 11in;
+    padding: 48px 48px 40px;
+    background: var(--ground);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .page + .page { break-before: page; }
+
+  @media screen {
+    body { padding: 32px 0; display: flex; flex-direction: column; align-items: center; gap: 32px; background: #000; }
+    .page { outline: 1px solid var(--line); }
+  }
+
+  /* ===== Type ===== */
+  .display { font-variation-settings: "wdth" 125; font-weight: 800; letter-spacing: -0.025em; line-height: 0.95; }
+  .heading { font-variation-settings: "wdth" 118; font-weight: 750; letter-spacing: -0.02em; line-height: 1.02; }
+  .data { font-family: "Martian Mono", ui-monospace, monospace; font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+  .muted { color: var(--fg-2); }
+  .faint { color: var(--fg-3); }
+  .brand { color: var(--accent); }
+  h2.title { font-size: 44px; max-width: 14ch; }
+  p.lead { font-size: 17px; line-height: 1.45; color: var(--fg-2); max-width: 48ch; text-wrap: pretty; }
+  strong { font-weight: 650; color: var(--fg); }
+
+  /* ===== Cells ===== */
+  .cell {
+    position: relative; display: flex; flex-direction: column; justify-content: space-between;
+    background: var(--ink-1); border: 1px solid var(--line); color: var(--fg);
+    padding: 10px 12px 11px; min-width: 0;
+  }
+  .cell-num { font-family: "Martian Mono", ui-monospace, monospace; font-variant-numeric: tabular-nums; font-size: 9.5px; line-height: 1; color: var(--fg-3); }
+  .cell-sym { font-variation-settings: "wdth" 112; font-weight: 750; letter-spacing: -0.02em; line-height: 1; }
+  .cell-name { font-variation-settings: "wdth" 80; font-size: 11px; line-height: 1.2; color: var(--fg-2); }
+  .cell.lit { background: var(--primary); border-color: var(--primary); color: var(--on-primary); }
+  .cell.lit .cell-num, .cell.lit .cell-name { color: var(--on-primary); }
+  .cell.wash { background: var(--wash); border-color: var(--primary-dark); }
+  .row { display: flex; justify-content: space-between; align-items: flex-start; gap: 4px; }
+
+  /* ===== Chrome: nav strip, kickers, page foot ===== */
+  .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+  .brandmark { display: flex; align-items: center; gap: 10px; }
+  .brandmark img { width: 28px; height: 28px; display: block; }
+  .brandmark .heading { font-size: 13px; line-height: 1; letter-spacing: -0.01em; }
+  .brandmark .heading span { color: var(--fg-3); font-weight: 600; }
+  .nav .data { font-size: 9.5px; color: var(--fg-3); }
+
+  .kicker { display: flex; justify-content: space-between; align-items: center; font-size: 9.5px; color: var(--fg-3); padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+
+  .pfoot { margin-top: auto; display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px solid var(--line); font-size: 9.5px; color: var(--fg-3); }
+
+  /* ===== Lists: hairline rows with the authored check ===== */
+  .ticks { list-style: none; border-top: 1px solid var(--line); }
+  .ticks li { display: flex; gap: 12px; align-items: flex-start; padding: 13px 0; border-bottom: 1px solid var(--line); font-size: 14px; line-height: 1.35; }
+  .ticks svg { flex: none; margin-top: 3px; color: var(--primary); }
+
+  /* ===== Photographs: real event photos, 3px ink frame ===== */
+  figure.photo { border: 1px solid var(--line); background: var(--ink-1); padding: 3px; }
+  figure.photo .img { overflow: hidden; }
+  figure.photo img { display: block; width: 100%; height: 100%; object-fit: cover; filter: saturate(0.85) contrast(1.04); }
+  figure.photo figcaption { display: flex; justify-content: space-between; gap: 8px; padding: 7px 6px 3px; font-size: 9px; color: var(--fg-3); }
+
+  /* ===== Cover: the p-block corner of the chart, large =====
+     Groups 13 to 18, periods 1 to 3. The three competition days are
+     elements 15, 16 and 17 at their real positions; everything else is a ghost. */
+  .pblock { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); grid-template-rows: repeat(3, 108px); gap: 3px; }
+  .pblock .ghost { background: transparent; border-color: var(--line); color: var(--fg-faint); padding: 9px 11px 10px; }
+  .pblock .ghost .cell-num { color: var(--fg-faint); }
+  .pblock .ghost .cell-sym { font-size: 26px; color: var(--fg-faint); }
+  .pblock .day { background: var(--primary); border-color: var(--primary); color: var(--on-primary); padding: 9px 11px 10px; }
+  .pblock .day .cell-num { color: var(--on-primary); }
+  .pblock .day .cell-sym { font-size: 34px; }
+  .pblock .day .cell-name { font-size: 10.5px; font-variation-settings: "wdth" 75; color: var(--on-primary); white-space: nowrap; }
+
+  .facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 3px; }
+  .facts .cell { min-height: 100px; gap: 12px; }
+  .facts .v { font-size: 14px; font-weight: 650; line-height: 1.15; letter-spacing: -0.01em; }
+  .facts .v.data { font-size: 12.5px; font-weight: 600; }
+  .facts .s { font-size: 10px; color: var(--fg-2); margin-top: 4px; line-height: 1.3; }
+  .facts .cell.lit .s { color: rgba(3, 20, 10, 0.78); }
+
+  /* ===== Stats: big numbers in cells ===== */
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; }
+  .stats .cell { min-height: 100px; }
+  .stats .n { font-size: 36px; line-height: 1; margin-top: 10px; font-weight: 500; letter-spacing: -0.03em; }
+  .stats .cell-name { font-size: 11.5px; margin-top: 8px; }
+
+  /* ===== Schedule rows (as on the site) ===== */
+  .days { list-style: none; border-top: 1px solid var(--line); }
+  .days li { display: grid; grid-template-columns: 68px 150px 1fr auto; gap: 20px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--line); }
+  .days .cell { height: 64px; padding: 6px 8px 7px; }
+  .days .cell-sym { font-size: 22px; }
+  .days .when { font-size: 11px; color: var(--fg-3); line-height: 1.5; }
+  .days .when b { display: block; font-weight: 400; color: var(--fg-2); }
+  .days h3 { font-size: 22px; }
+  .days h3 small { display: block; font-size: 13px; color: var(--fg-2); font-weight: 600; margin-top: 3px; letter-spacing: 0; }
+  .days .time { font-size: 11px; color: var(--fg-2); }
+
+  /* ===== Why page ===== */
+  .why { display: grid; grid-template-columns: 1fr 272px; gap: 28px; }
+  .why h3 { font-size: 15px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: baseline; }
+  .why h3 .data { font-size: 9.5px; color: var(--fg-3); font-weight: 400; }
+  .why .side { display: flex; flex-direction: column; gap: 3px; }
+  .why .side figure .img { height: 320px; }
+  .why .quote { flex: 1; font-size: 15px; line-height: 1.4; font-weight: 600; letter-spacing: -0.01em; gap: 16px; }
+
+  /* ===== Tier cards ===== */
+  .tiers { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; flex: 1; }
+  .tier { border: 1px solid; padding: 22px 24px 24px; display: flex; flex-direction: column; }
+  .tier .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+  .tier h3 { font-size: 28px; }
+  .tier .sym { font-variation-settings: "wdth" 112; font-weight: 750; font-size: 30px; line-height: 1; letter-spacing: -0.02em; }
+  .tier .price { font-size: 34px; line-height: 1; margin-top: 18px; }
+  .tier .tag { font-size: 13.5px; line-height: 1.35; margin-top: 12px; min-height: 2.7em; }
+  .tier ul { list-style: none; margin-top: 16px; border-top: 1px solid; }
+  .tier li { padding: 7px 0; border-bottom: 1px solid; font-size: 13px; line-height: 1.3; }
+  .tier li.cum { font-size: 11px; }
+  .t1 { background: var(--ink-1); border-color: var(--line-2); color: var(--fg); }
+  .t1 .sym { color: var(--fg-faint); } .t1 .tag, .t1 .cum { color: var(--fg-2); } .t1 ul, .t1 li { border-color: var(--line-2); }
+  .t2 { background: var(--t2-bg); border-color: var(--t2-line); color: var(--fg); }
+  .t2 .sym { color: var(--accent); } .t2 .tag, .t2 .cum { color: var(--fg-2); } .t2 ul, .t2 li { border-color: var(--t2-line); }
+  .t3 { background: var(--wash); border-color: var(--primary-dark); color: var(--fg); }
+  .t3 .sym { color: var(--accent); } .t3 .tag, .t3 .cum { color: var(--fg-2); } .t3 ul, .t3 li { border-color: #275a35; }
+  .t4 { background: var(--primary); border-color: var(--primary); color: var(--on-primary); }
+  .t4 .sym, .t4 .tag, .t4 .cum { color: rgba(3, 20, 10, 0.78); } .t4 ul, .t4 li { border-color: rgba(3, 20, 10, 0.25); }
+
+  /* ===== Perks matrix ===== */
+  table.perks { width: 100%; border-collapse: collapse; }
+  table.perks th, table.perks td { padding: 0; }
+  table.perks colgroup col.c { width: 96px; }
+  table.perks thead th { padding: 0 0 10px; font-size: 10px; color: var(--fg-3); font-weight: 400; text-align: center; vertical-align: bottom; }
+  table.perks thead th:first-child { text-align: left; }
+  table.perks thead th .n { display: block; font-family: "Archivo"; font-variation-settings: "wdth" 112; font-weight: 750; font-size: 14px; color: var(--fg); letter-spacing: -0.01em; margin-bottom: 2px; }
+  table.perks thead th .n.t4c { color: var(--accent); }
+  table.perks tr.group td { padding: 16px 0 6px; font-variation-settings: "wdth" 118; font-weight: 750; font-size: 15px; letter-spacing: -0.015em; border-bottom: 1px solid var(--line-2); }
+  table.perks tbody tr.perk td { border-bottom: 1px solid var(--line); height: 29px; font-size: 13px; }
+  table.perks tbody tr.perk td + td { text-align: center; }
+  table.perks .size { font-size: 10.5px; color: var(--fg-2); }
+  .mark { display: inline-flex; width: 15px; height: 15px; align-items: center; justify-content: center; vertical-align: middle; border: 1px solid; }
+  .mark svg { display: block; }
+  .mark.m1 { background: var(--ink-1); border-color: var(--line-2); color: var(--fg-2); }
+  .mark.m2 { background: var(--t2-bg); border-color: var(--t2-line); color: var(--accent); }
+  .mark.m3 { background: var(--wash); border-color: var(--primary-dark); color: var(--accent); }
+  .mark.m4 { background: var(--primary); border-color: var(--primary); color: var(--on-primary); }
+  .notes { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
+  .notes li { background: var(--ink-1); border: 1px solid var(--line); padding: 9px 11px 10px; font-size: 10.5px; line-height: 1.4; color: var(--fg-2); }
+  .notes .data { color: var(--accent); font-size: 9.5px; display: block; margin-bottom: 3px; }
+
+  /* ===== In-kind ===== */
+  .kinds { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; }
+  .kinds .cell { min-height: 196px; gap: 14px; }
+  .kinds h3 { font-size: 18px; margin-top: 18px; }
+  .kinds p { margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--fg-2); }
+  .series { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; }
+  .series .cell { height: 112px; border: 1px solid; }
+  .series .cell-sym { font-size: 34px; }
+  .series .cell-name { font-size: 11.5px; }
+  .series .t1 .cell-sym { color: var(--fg-faint); }
+  .series .t2 .cell-sym, .series .t3 .cell-sym { color: var(--accent); }
+  .series .t2 .cell-num, .series .t3 .cell-num { color: var(--fg-3); }
+  .series .t4 .cell-num, .series .t4 .cell-name { color: rgba(3, 20, 10, 0.78); }
+  .cell.flex { padding: 20px 24px 22px; gap: 22px; }
+  .cell.flex .flex-body { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: end; }
+  .cell.flex h3 { font-size: 24px; }
+  .cell.flex p { margin-top: 8px; font-size: 13.5px; line-height: 1.45; color: var(--fg-2); max-width: 44ch; }
+  .cell.flex .write { font-size: 13.5px; line-height: 1.4; margin: 0; text-align: right; white-space: nowrap; }
+
+  /* ===== Closing band ===== */
+  .band { background: var(--primary); color: var(--on-primary); padding: 44px 44px 44px; flex: 1; display: flex; flex-direction: column; }
+  .band h2 { font-size: 92px; }
+  .band .when { margin-top: 26px; font-size: 11px; color: rgba(3, 20, 10, 0.85); }
+  .band .cta { margin-top: 34px; display: flex; align-items: center; gap: 16px; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; height: 46px; padding: 0 20px; background: var(--ground); color: var(--fg); font-weight: 700; font-variation-settings: "wdth" 110; font-size: 14px; line-height: 1; }
+  .btn svg { display: block; }
+  .band .cta p { font-size: 13px; color: rgba(3, 20, 10, 0.85); max-width: 40ch; line-height: 1.4; }
+  .band .trio { margin-top: auto; margin-bottom: 24px; display: grid; grid-template-columns: repeat(3, 118px); gap: 3px; }
+  .band .trio .cell { background: var(--ground); border-color: var(--ground); color: var(--fg); height: 118px; }
+  .band .trio .cell-num { color: var(--fg-3); }
+  .band .trio .cell-sym { font-size: 36px; color: var(--accent); }
+  .band .trio .cell-name { color: var(--fg-2); }
+  .band .contacts { margin-top: 0; display: grid; grid-template-columns: 1fr; gap: 3px; }
+  .band .contacts .cell { background: var(--ground); border-color: var(--ground); color: var(--fg); flex-direction: row; align-items: center; justify-content: flex-start; gap: 18px; padding: 16px 18px; }
+  .band .contacts .cell-num { width: 72px; }
+  .band .contacts .v { font-size: 20px; font-weight: 650; letter-spacing: -0.015em; line-height: 1; font-variation-settings: "wdth" 110; }
+  .band .contacts .s { margin-left: auto; font-size: 10px; color: var(--fg-3); }
+
+  .foot { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: end; padding-top: 16px; margin-top: 20px; border-top: 1px solid var(--line); }
+  .foot .brandmark .heading { font-size: 12px; line-height: 1.15; }
+  .foot address { font-style: normal; font-size: 10px; line-height: 1.5; color: var(--fg-2); text-align: right; }
+  .foot .data { font-size: 9px; color: var(--fg-3); }
+</style>
+</head>
+<body>
+
+<!-- ======================================================================
+     PAGE 1: Cover
+     ====================================================================== -->
+<section class="page" id="cover">
+  <header class="nav">
+    <div class="brandmark">
+      <img src="logo.png" alt="">
+      <p class="heading"><span>WOSS</span> Triple Olympiad</p>
+    </div>
+    <p class="data">SPONSORSHIP PACKAGE &middot; 2026</p>
+  </header>
+
+  <div style="margin-top: 64px;">
+    <h1 class="display" style="font-size: 78px;">Sponsor the<br>Triple Olympiad</h1>
+    <p class="lead" style="margin-top: 24px;">
+      Three free after-school STEM competitions at White Oaks Secondary School, Oakville.
+    </p>
+  </div>
+
+  <div class="pblock" style="margin-top: 64px;" aria-label="Corner of the periodic table with the three competition days lit">
+
+    <div class="cell ghost" style="grid-row:1;grid-column:6"><span class="cell-num">2</span><span class="cell-sym">He</span></div>
+
+    <div class="cell ghost" style="grid-row:2;grid-column:1"><span class="cell-num">5</span><span class="cell-sym">B</span></div>
+    <div class="cell ghost" style="grid-row:2;grid-column:2"><span class="cell-num">6</span><span class="cell-sym">C</span></div>
+    <div class="cell ghost" style="grid-row:2;grid-column:3"><span class="cell-num">7</span><span class="cell-sym">N</span></div>
+    <div class="cell ghost" style="grid-row:2;grid-column:4"><span class="cell-num">8</span><span class="cell-sym">O</span></div>
+    <div class="cell ghost" style="grid-row:2;grid-column:5"><span class="cell-num">9</span><span class="cell-sym">F</span></div>
+    <div class="cell ghost" style="grid-row:2;grid-column:6"><span class="cell-num">10</span><span class="cell-sym">Ne</span></div>
+
+    <div class="cell ghost" style="grid-row:3;grid-column:1"><span class="cell-num">13</span><span class="cell-sym">Al</span></div>
+    <div class="cell ghost" style="grid-row:3;grid-column:2"><span class="cell-num">14</span><span class="cell-sym">Si</span></div>
+    <div class="cell day" style="grid-row:3;grid-column:3"><span class="row"><span class="cell-num">15</span><span class="cell-num">TUE</span></span><span class="cell-sym">Ma</span><span class="cell-name">Mathematics</span></div>
+    <div class="cell day" style="grid-row:3;grid-column:4"><span class="row"><span class="cell-num">16</span><span class="cell-num">WED</span></span><span class="cell-sym">Cs</span><span class="cell-name">Computer Science</span></div>
+    <div class="cell day" style="grid-row:3;grid-column:5"><span class="row"><span class="cell-num">17</span><span class="cell-num">THU</span></span><span class="cell-sym">Ph</span><span class="cell-name">Physics + Hackathon</span></div>
+    <div class="cell ghost" style="grid-row:3;grid-column:6"><span class="cell-num">18</span><span class="cell-sym">Ar</span></div>
+  </div>
+
+  <dl class="facts" style="margin-top: 64px;">
+    <div class="cell lit">
+      <dt class="cell-num">Dates</dt>
+      <dd><div class="v data">DEC 15&ndash;17, 2026</div><div class="s">Tuesday to Thursday</div></dd>
+    </div>
+    <div class="cell">
+      <dt class="cell-num">Time</dt>
+      <dd><div class="v data">3:00&ndash;5:30 PM</div><div class="s">After school, each day</div></dd>
+    </div>
+    <div class="cell">
+      <dt class="cell-num">Venue</dt>
+      <dd><div class="v">White Oaks Secondary</div><div class="s">1330 Montclair Dr, Oakville</div></dd>
+    </div>
+    <div class="cell">
+      <dt class="cell-num">Contact</dt>
+      <dd><div class="v" style="font-size: 12px;">wosstriolympiad@gmail.com</div><div class="s">triolympiad.ca</div></dd>
+    </div>
+  </dl>
+
+  <footer class="pfoot">
+    <span>White Oaks Secondary School &middot; Math, Physics and Computer Science clubs</span>
+    <span class="data">01 / 07</span>
+  </footer>
+</section>
+
+<!-- ======================================================================
+     PAGE 2: The event
+     ====================================================================== -->
+<section class="page" id="event">
+  <div class="kicker"><span class="data">THE EVENT</span><span class="data">DEC 15&ndash;17, 2026</span></div>
+
+  <figure class="photo" style="margin-top: 20px;">
+    <div class="img" style="height: 232px;"><img src="comphighlight.png" alt="Teams of students at cafeteria tables during a past Triple Olympiad"></div>
+    <figcaption><span>Teams in the WOSS cafeteria on competition day</span><span class="data">01</span></figcaption>
+  </figure>
+
+  <h2 class="heading title" style="margin-top: 24px; font-size: 40px; max-width: none;">Three afternoons. Three disciplines.</h2>
+  <p class="lead" style="margin-top: 12px; max-width: 62ch;">
+    The WOSS Triple Olympiad is White Oaks Secondary School&rsquo;s signature academic
+    competition, run by its Math, Physics and Computer Science clubs. Halton&rsquo;s brightest
+    students tackle theory-rich contest problems and hands-on activities.
+  </p>
+
+  <dl class="stats" style="margin-top: 22px;">
+    <div class="cell"><dt class="cell-num">Participants</dt><dd><div class="n data">100+</div><div class="cell-name">Interested students</div></dd></div>
+    <div class="cell"><dt class="cell-num">Grades</dt><dd><div class="n data">9&ndash;12</div><div class="cell-name">From across the HDSB</div></dd></div>
+    <div class="cell"><dt class="cell-num">Days</dt><dd><div class="n data">3</div><div class="cell-name">Dec 15, 16 and 17</div></dd></div>
+    <div class="cell lit"><dt class="cell-num">Entry</dt><dd><div class="n data">$0</div><div class="cell-name">Free for every student</div></dd></div>
+  </dl>
+
+  <ol class="days" style="margin-top: 22px;">
+    <li>
+      <div class="cell lit"><span class="cell-num">15</span><span class="cell-sym">Ma</span><span class="cell-name">Math</span></div>
+      <p class="when data">DAY 1<b>Tuesday, Dec 15</b></p>
+      <h3 class="heading">Mathematics</h3>
+      <p class="time data">3:00&ndash;5:30 PM</p>
+    </li>
+    <li>
+      <div class="cell lit"><span class="cell-num">16</span><span class="cell-sym">Cs</span><span class="cell-name">Comp Sci</span></div>
+      <p class="when data">DAY 2<b>Wednesday, Dec 16</b></p>
+      <h3 class="heading">Computer Science</h3>
+      <p class="time data">3:00&ndash;5:30 PM</p>
+    </li>
+    <li>
+      <div class="cell lit"><span class="cell-num">17</span><span class="cell-sym">Ph</span><span class="cell-name">Physics</span></div>
+      <p class="when data">DAY 3<b>Thursday, Dec 17</b></p>
+      <h3 class="heading">Physics <small>+ Practical Hackathon</small></h3>
+      <p class="time data">3:00&ndash;5:30 PM</p>
+    </li>
+  </ol>
+
+  <footer class="pfoot">
+    <span>WOSS Triple Olympiad &middot; Sponsorship package 2026</span>
+    <span class="data">02 / 07</span>
+  </footer>
+</section>
+
+<!-- ======================================================================
+     PAGE 3: Why sponsor
+     ====================================================================== -->
+<section class="page" id="why">
+  <div class="kicker"><span class="data">WHY SPONSOR</span><span class="data">COMMUNITY &middot; OUTREACH</span></div>
+
+  <h2 class="heading title" style="margin-top: 28px; max-width: 16ch; font-size: 46px;">Your brand, in front of Halton&rsquo;s most dedicated STEM students.</h2>
+  <p class="lead" style="margin-top: 18px; max-width: 56ch;">
+    Reach motivated students, their families, and an alumni community that includes
+    graduates now studying at CMU, Harvard and Penn.
+  </p>
+
+  <div class="why" style="margin-top: 34px;">
+    <div>
+      <h3 class="heading">Community <span class="data">01</span></h3>
+      <ul class="ticks">
+        <li><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7.5 5.5 11 12 3.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span>Support local students and future innovators</span></li>
+        <li><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7.5 5.5 11 12 3.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span>Show your commitment to youth and education</span></li>
+        <li><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7.5 5.5 11 12 3.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span>Enable a positive, community-building school event</span></li>
+      </ul>
+
+      <h3 class="heading" style="margin-top: 28px;">Vast outreach <span class="data">02</span></h3>
+      <ul class="ticks">
+        <li><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7.5 5.5 11 12 3.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span>The largest high school in Oakville, with an IB program of the most dedicated math, physics and CS students</span></li>
+        <li><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7.5 5.5 11 12 3.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span>100 to 200 expected participants from across the HDSB</span></li>
+        <li><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7.5 5.5 11 12 3.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span>A diverse audience: a large neurodivergent population and the highest gender ratio in Oakville</span></li>
+        <li><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7.5 5.5 11 12 3.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span>Promote your company and its services directly to students</span></li>
+      </ul>
+    </div>
+
+    <div class="side">
+      <figure class="photo">
+        <div class="img"><img src="randomcaf.png" alt="Participants competing in the cafeteria on competition day"></div>
+        <figcaption><span>Competition day</span><span class="data">02</span></figcaption>
+      </figure>
+      <div class="cell wash quote">
+        <span class="cell-num brand">Your impact</span>
+        <span>Your support strengthens STEM diversity, enriches learning and expands high-impact opportunities for Oakville&rsquo;s young innovators.</span>
+      </div>
+    </div>
+  </div>
+
+  <footer class="pfoot">
+    <span>WOSS Triple Olympiad &middot; Sponsorship package 2026</span>
+    <span class="data">03 / 07</span>
+  </footer>
+</section>
+
+<!-- ======================================================================
+     PAGE 4: Tiers
+     ====================================================================== -->
+<section class="page" id="tiers">
+  <div class="kicker"><span class="data">SPONSORSHIP TIERS</span><span class="data">EACH TIER INCLUDES EVERYTHING BEFORE IT</span></div>
+
+  <h2 class="heading title" style="margin-top: 28px; margin-bottom: 26px;">Four tiers. One series.</h2>
+
+  <div class="tiers">
+    <article class="tier t1">
+      <div class="top"><h3 class="heading">Vector</h3><span class="sym">Ve</span></div>
+      <p class="price data">$100</p>
+      <p class="tag">Get your name in front of the room.</p>
+      <ul>
+        <li>Logo on the event website (XS)</li>
+        <li>Logo on ceremony slides and participant stickers</li>
+        <li>Sponsored Discord announcements</li>
+        <li>Host a branded prize category</li>
+      </ul>
+    </article>
+    <article class="tier t2">
+      <div class="top"><h3 class="heading">Matrix</h3><span class="sym">Mx</span></div>
+      <p class="price data">$250</p>
+      <p class="tag">Stage time, socials, and a line to every participant.</p>
+      <ul>
+        <li class="cum data">PLUS EVERYTHING IN VECTOR</li>
+        <li>Logo on the event website (S)</li>
+        <li>Shoutouts on social media and at the ceremonies</li>
+        <li>Customized email to all participants</li>
+        <li>Feature in the resource directory</li>
+      </ul>
+    </article>
+    <article class="tier t3">
+      <div class="top"><h3 class="heading">Tensor</h3><span class="sym">Te</span></div>
+      <p class="price data">$500</p>
+      <p class="tag">Speak at closing, hand out swag, own a prize.</p>
+      <ul>
+        <li class="cum data">PLUS EVERYTHING IN MATRIX</li>
+        <li>Logo on the event website (M)</li>
+        <li>Stage time at the closing ceremonies</li>
+        <li>Distribute your company swag</li>
+        <li>Dedicated sponsor booth</li>
+      </ul>
+    </article>
+    <article class="tier t4">
+      <div class="top"><h3 class="heading">Singularity</h3><span class="sym">Sg</span></div>
+      <p class="price data">$1,500</p>
+      <p class="tag">Everything we have: booth, judging seat, trophy, workshop.</p>
+      <ul>
+        <li class="cum data">PLUS EVERYTHING IN TENSOR</li>
+        <li>Logo on the event website (XL)</li>
+        <li>Seat on the judging panel</li>
+        <li>Logo on the winner trophy</li>
+        <li>Dedicated social media post of your choice</li>
+        <li>Host a workshop or tech talk</li>
+      </ul>
+    </article>
+  </div>
+
+  <footer class="pfoot">
+    <span>WOSS Triple Olympiad &middot; Sponsorship package 2026</span>
+    <span class="data">04 / 07</span>
+  </footer>
+</section>
+
+<!-- ======================================================================
+     PAGE 5: Perks at a glance
+     ====================================================================== -->
+<section class="page" id="perks">
+  <div class="kicker"><span class="data">PERKS AT A GLANCE</span><span class="data">BRANDING &middot; INVOLVEMENT &middot; PRODUCTS</span></div>
+
+  <table class="perks" style="margin-top: 28px;">
+    <colgroup><col><col class="c"><col class="c"><col class="c"><col class="c"></colgroup>
+    <thead>
+      <tr>
+        <th scope="col"><span class="data">PERK</span></th>
+        <th scope="col"><span class="n">Vector</span><span class="data">$100</span></th>
+        <th scope="col"><span class="n">Matrix</span><span class="data">$250</span></th>
+        <th scope="col"><span class="n">Tensor</span><span class="data">$500</span></th>
+        <th scope="col"><span class="n t4c">Singularity</span><span class="data">$1,500</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="group"><td colspan="5">Branding</td></tr>
+      <tr class="perk"><td>Logo on event website</td><td><span class="size data">XS</span></td><td><span class="size data">S</span></td><td><span class="size data">M</span></td><td><span class="size data">XL</span></td></tr>
+      <tr class="perk"><td>Logo on ceremony slides</td><td><span class="mark m1"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></td><td><span class="mark m2"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></td><td><span class="mark m3"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></td><td><span class="mark m4"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></td></tr>
+      <tr class="perk"><td>Logo on participant stickers</td><td><span class="mark m1"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></td><td><span class="mark m2"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></td><td><span class="mark m3"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></td><td><span class="mark m4"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></td></tr>
+      <tr class="perk"><td>Shoutouts on social media</td><td></td><td><span class="mark m2"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></td><td><span class="mark m3"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></td><td><span class="mark m4"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></td></tr>
+      <tr class="perk"><td>Shoutout at the opening and closing ceremonies</td><td></td><td><span class="mark m2"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></td><td><span class="mark m3"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></td><td><span class="mark m4"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></td></tr>
+      <tr class="perk"><td>Distribute your company swag</td><td></td><td></td><td><span class="mark m3"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></td><td><span class="mark m4"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></td></tr>
+      <tr class="perk"><td>Dedicated social media post of your choice</td><td></td><td></td><td></td><td><span class="mark m4"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></td></tr>
+
+      <tr class="group"><td colspan="5">Involvement</td></tr>
+      <tr class="perk"><td>Sponsored Discord announcements</td><td><span class="mark m1"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></td><td><span class="mark m2"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></td><td><span class="mark m3"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></td><td><span class="mark m4"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></td></tr>
+      <tr class="perk"><td>Customized email to all participants</td><td></td><td><span class="mark m2"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></td><td><span class="mark m3"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></td><td><span class="mark m4"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></td></tr>
+      <tr class="perk"><td>Stage time at the closing ceremonies</td><td></td><td></td><td><span class="mark m3"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></td><td><span class="mark m4"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></td></tr>
+      <tr class="perk"><td>Dedicated sponsor booth <span class="data brand">*</span></td><td></td><td></td><td><span class="mark m3"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></td><td><span class="mark m4"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></td></tr>
+      <tr class="perk"><td>Logo on the winner trophy</td><td></td><td></td><td></td><td><span class="mark m4"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></td></tr>
+      <tr class="perk"><td>Seat on the judging panel</td><td></td><td></td><td></td><td><span class="mark m4"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></td></tr>
+
+      <tr class="group"><td colspan="5">Products</td></tr>
+      <tr class="perk"><td>Host a branded prize category <span class="data brand">**</span></td><td><span class="mark m1"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></td><td><span class="mark m2"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></td><td><span class="mark m3"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></td><td><span class="mark m4"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></td></tr>
+      <tr class="perk"><td>Feature in the resource directory <span class="data brand">***</span></td><td></td><td><span class="mark m2"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></td><td><span class="mark m3"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></td><td><span class="mark m4"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></td></tr>
+      <tr class="perk"><td>Host a workshop or tech talk <span class="data brand">****</span></td><td></td><td></td><td></td><td><span class="mark m4"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6.5 4.8 9 10 3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></td></tr>
+    </tbody>
+  </table>
+
+  <ul class="notes" style="margin-top: 26px;">
+    <li><span class="data">* DEDICATED SPONSOR BOOTH</span>A high-traffic table at the event for your team to network and demo.</li>
+    <li><span class="data">** BRANDED PRIZE CATEGORY</span>Create and name your own prize, such as &ldquo;Best in Physics&rdquo;, for a specific challenge.</li>
+    <li><span class="data">*** RESOURCE DIRECTORY</span>Place your APIs, links and docs in the official resource hub for all participants.</li>
+    <li><span class="data">**** WORKSHOP OR TECH TALK</span>Lead a 30 to 60 minute session to engage and teach participants.</li>
+  </ul>
+
+  <footer class="pfoot">
+    <span>WOSS Triple Olympiad &middot; Sponsorship package 2026</span>
+    <span class="data">05 / 07</span>
+  </footer>
+</section>
+
+<!-- ======================================================================
+     PAGE 6: In-kind and flexible options
+     ====================================================================== -->
+<section class="page" id="inkind">
+  <div class="kicker"><span class="data">IN-KIND &amp; FLEXIBLE OPTIONS</span><span class="data">PRIZES &middot; SWAG &middot; ADD-ONS</span></div>
+
+  <h2 class="heading title" style="margin-top: 28px; max-width: 16ch;">Prefer to sponsor with products?</h2>
+  <p class="lead" style="margin-top: 16px; max-width: 54ch;">
+    We warmly welcome merchandise, competition prizes, hardware and event goods.
+    They go straight into the hands of 100+ motivated high school students.
+  </p>
+
+  <dl class="kinds" style="margin-top: 28px;">
+    <div class="cell">
+      <dt class="cell-num">01</dt>
+      <dd><h3 class="heading">Prizes &amp; tech</h3><p>Mechanical keyboards, microcontrollers, electronics kits, headphones, smart devices or tech accessories for our top performers.</p></dd>
+    </div>
+    <div class="cell">
+      <dt class="cell-num">02</dt>
+      <dd><h3 class="heading">Swag &amp; goodies</h3><p>Branded shirts, hoodies, stickers, notebooks, water bottles and stationery in the welcome bags for every participant.</p></dd>
+    </div>
+    <div class="cell wash">
+      <dt class="cell-num brand">03</dt>
+      <dd><h3 class="heading">Tier-equivalent perks</h3><p>In-kind gifts are valued at fair retail value and mapped to a tier, from Vector to Singularity, with full promotional perks.</p></dd>
+    </div>
+  </dl>
+
+  <p class="kicker" style="margin-top: 40px; border-bottom: 0; padding-bottom: 10px;"><span class="data">IN-KIND GIFTS MAP TO A TIER</span><span class="data">BY FAIR RETAIL VALUE</span></p>
+  <ol class="series">
+    <li class="cell t1"><span class="row"><span class="cell-num">1</span><span class="cell-num">$100</span></span><span class="cell-sym">Ve</span><span class="cell-name">Vector</span></li>
+    <li class="cell t2"><span class="row"><span class="cell-num">2</span><span class="cell-num">$250</span></span><span class="cell-sym">Mx</span><span class="cell-name">Matrix</span></li>
+    <li class="cell t3"><span class="row"><span class="cell-num">3</span><span class="cell-num">$500</span></span><span class="cell-sym">Te</span><span class="cell-name">Tensor</span></li>
+    <li class="cell t4"><span class="row"><span class="cell-num">4</span><span class="cell-num">$1,500</span></span><span class="cell-sym">Sg</span><span class="cell-name">Singularity</span></li>
+  </ol>
+
+  <div class="cell flex" style="margin-top: 40px;">
+    <span class="cell-num">Flexible sponsorship</span>
+    <div class="flex-body">
+      <div>
+        <h3 class="heading">Something else in mind?</h3>
+        <p>Not sure where to start, or looking beyond our standard packages? We offer customizable add-ons and alternate options to meet your goals.</p>
+      </div>
+      <p class="write"><span class="faint">Write to</span><br><strong>wosstriolympiad@gmail.com</strong></p>
+    </div>
+  </div>
+
+  <footer class="pfoot">
+    <span>WOSS Triple Olympiad &middot; Sponsorship package 2026</span>
+    <span class="data">06 / 07</span>
+  </footer>
+</section>
+
+<!-- ======================================================================
+     PAGE 7: Closing band
+     ====================================================================== -->
+<section class="page" id="close">
+  <div class="band">
+    <h2 class="display">Let&rsquo;s work<br>together.</h2>
+    <p class="when data">DECEMBER 15 TO 17, 2026 &middot; 3:00&ndash;5:30 PM &middot; WHITE OAKS SECONDARY SCHOOL, OAKVILLE</p>
+    <div class="cta">
+      <span class="btn">Become a sponsor
+        <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+      </span>
+      <p>Email us with the tier you have in mind, or an idea of your own.</p>
+    </div>
+    <div class="trio" aria-hidden="true">
+      <div class="cell"><span class="row"><span class="cell-num">15</span><span class="cell-num">TUE</span></span><span class="cell-sym">Ma</span><span class="cell-name">Mathematics</span></div>
+      <div class="cell"><span class="row"><span class="cell-num">16</span><span class="cell-num">WED</span></span><span class="cell-sym">Cs</span><span class="cell-name">Computer Science</span></div>
+      <div class="cell"><span class="row"><span class="cell-num">17</span><span class="cell-num">THU</span></span><span class="cell-sym">Ph</span><span class="cell-name">Physics + Hackathon</span></div>
+    </div>
+    <dl class="contacts">
+      <div class="cell"><dt class="cell-num">Email</dt><dd class="v">wosstriolympiad@gmail.com</dd><span class="s data">ALL INQUIRIES</span></div>
+      <div class="cell"><dt class="cell-num">Website</dt><dd class="v">www.triolympiad.ca</dd><span class="s data">DETAILS &amp; REGISTRATION</span></div>
+      <div class="cell"><dt class="cell-num">Instagram</dt><dd class="v">@wossolympiad</dd><span class="s data">FOLLOW ALONG</span></div>
+    </dl>
+  </div>
+
+  <footer class="foot">
+    <div>
+      <div class="brandmark">
+        <img src="logo.png" alt="">
+        <p class="heading"><span>WOSS</span><br>Triple Olympiad</p>
+      </div>
+      <p class="data" style="margin-top: 10px;">&copy; 2026 WOSS TRIPLE OLYMPIAD &middot; 07 / 07</p>
+    </div>
+    <address>White Oaks Secondary School<br>1330 Montclair Dr<br>Oakville, ON L6H 1Z5</address>
+  </footer>
+</section>
+
+</body>
+</html>
